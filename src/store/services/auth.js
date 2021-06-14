@@ -1,7 +1,8 @@
 import {PostAPIAxios} from './service';
-import Config from 'react-native-config';
+// import Config from 'react-native-config';
 
-const {HOST} = Config;
+// const {HOST} = Config;
+const HOST = 'https://blooming-beach-14948.herokuapp.com/api/v1'
 
 export const signup = async (data) => {
   let url = `${HOST}/admin/signup`;

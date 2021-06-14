@@ -5,7 +5,7 @@ import {
   TextInput,
   View,
   Alert,
-  ActivityIndicator
+  ActivityIndicator, ImageBackground
 } from "react-native";
 import Button from "react-native-button";
 import { AppStyles } from "../AppStyles";
@@ -13,8 +13,16 @@ import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import Spinner from 'react-native-loading-spinner-overlay';
 import AsyncStorage from "@react-native-community/async-storage";
-
+import {
+	widthPercentageToDP as wp,
+	heightPercentageToDP as hp,
+} from "react-native-responsive-screen";
 import * as authActions from '../store/actions/auth';
+
+const admin = require("../../assets/admin.jpeg");
+const doctor = require("../../assets/doctor.jpeg");
+const patient = require("../../assets/patient.jpeg");
+
 
 class LoginScreen extends React.Component {
   constructor(props) {
@@ -119,14 +127,16 @@ class LoginScreen extends React.Component {
         }
       }
     }
-    console.log('I AM LOGIN', email, password)
   };
 
 
   render() {
     return (
       <View style={styles.container}>
-         <Spinner
+        <ImageBackground style={styles.image} source={this.state.user == 'Patient' ? patient :this.state.user == 'Doctor' ? doctor : admin} >
+        {/* source={this.state.user == 'patient' ? patient :this.state.user == 'doctor' ? doctor : admin} */}
+        <View style={styles.innerContainer}>
+        <Spinner
           visible={this.state.spinner}
           color="blue"
           customIndicator={<ActivityIndicator size="large" color="blue" />}
@@ -160,7 +170,10 @@ class LoginScreen extends React.Component {
         >
           Log in
         </Button>
+        </View>
+        </ImageBackground>
       </View>
+      
     );
   }
 }
@@ -170,6 +183,14 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: "center",
   },
+  innerContainer: {
+    alignItems: 'center',
+    height: hp("100%"),
+  },
+  image: {
+		width: wp("100%"),
+    height: hp("100%"),
+	},
   or: {
     color: "black",
     marginTop: 40,

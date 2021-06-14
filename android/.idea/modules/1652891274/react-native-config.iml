@@ -31,9 +31,9 @@
     <output-test url="file://$MODULE_DIR$/../../../../node_modules/react-native-config/android/build/intermediates/javac/releaseUnitTest/classes" />
     <exclude-output />
     <content url="file://$MODULE_DIR$/../../../../node_modules/react-native-config/android">
+      <sourceFolder url="file://$MODULE_DIR$/../../../../node_modules/react-native-config/android/build/generated/ap_generated_sources/release/out" isTestSource="false" generated="true" />
       <sourceFolder url="file://$MODULE_DIR$/../../../../node_modules/react-native-config/android/build/generated/aidl_source_output_dir/release/compileReleaseAidl/out" isTestSource="false" generated="true" />
       <sourceFolder url="file://$MODULE_DIR$/../../../../node_modules/react-native-config/android/build/generated/source/buildConfig/release" isTestSource="false" generated="true" />
-      <sourceFolder url="file://$MODULE_DIR$/../../../../node_modules/react-native-config/android/build/generated/ap_generated_sources/release/out" isTestSource="false" generated="true" />
       <sourceFolder url="file://$MODULE_DIR$/../../../../node_modules/react-native-config/android/build/generated/renderscript_source_output_dir/release/compileReleaseRenderscript/out" isTestSource="false" generated="true" />
       <sourceFolder url="file://$MODULE_DIR$/../../../../node_modules/react-native-config/android/build/generated/res/rs/release" type="java-resource" generated="true" />
       <sourceFolder url="file://$MODULE_DIR$/../../../../node_modules/react-native-config/android/build/generated/res/resValues/release" type="java-resource" generated="true" />

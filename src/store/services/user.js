@@ -1,7 +1,9 @@
 import {GetAPIAxios, PostAPIAxios, PutAPIAxios} from './service';
 import Config from 'react-native-config';
 
-const {HOST} = Config;
+// const {HOST} = Config;
+const HOST = 'https://blooming-beach-14948.herokuapp.com/api/v1'
+
 
 export const getUserInfo = async () => {
   let url = `${HOST}/admin/profile`;
