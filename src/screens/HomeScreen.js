@@ -61,7 +61,7 @@ class HomeScreen extends React.Component {
 		}
 	};
 	route = () => {
-		this.props.navigation.navigate("DoctorList");
+		this.props.navigation.navigate("PatientList");
 	};
 
 	render() {

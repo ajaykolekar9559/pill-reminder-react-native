@@ -44,7 +44,7 @@ const HomeStack = createStackNavigator(
   {
     Home: { screen: HomeScreen },
     Doctor: {screen: AddDoctorScreen},
-    DoctorList: {screen: DoctorListScreen}
+    PatientList: {screen: DoctorListScreen}
   },
   {
     initialRouteName: "Home",

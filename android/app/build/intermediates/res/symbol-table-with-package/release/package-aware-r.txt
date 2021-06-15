@@ -1373,9 +1373,13 @@ drawable abc_textfield_search_activated_mtrl_alpha
 drawable abc_textfield_search_default_mtrl_alpha
 drawable abc_textfield_search_material
 drawable abc_vector_test
+drawable assets_admin
+drawable assets_doctor
 drawable assets_icons_default_user
 drawable assets_icons_home
 drawable assets_icons_shutdown
+drawable assets_patient
+drawable assets_welcome
 drawable avd_hide_password
 drawable avd_show_password
 drawable btn_checkbox_checked_mtrl
@@ -1420,6 +1424,7 @@ drawable ic_clear_black_24dp
 drawable ic_edit_black_24dp
 drawable ic_keyboard_arrow_left_black_24dp
 drawable ic_keyboard_arrow_right_black_24dp
+drawable ic_launcher_background
 drawable ic_menu_arrow_down_black_24dp
 drawable ic_menu_arrow_up_black_24dp
 drawable ic_mtrl_checked_circle
@@ -1963,9 +1968,11 @@ layout text_view_with_line_height_from_style
 layout text_view_with_theme_line_height
 layout text_view_without_line_height
 mipmap ic_launcher
+mipmap ic_launcher_foreground
 mipmap ic_launcher_round
 plurals mtrl_badge_content_description
 raw app
+raw node_modules_reactnativevectoricons_glyphmaps_fontawesome
 string HOST
 string abc_action_bar_home_description
 string abc_action_bar_up_description

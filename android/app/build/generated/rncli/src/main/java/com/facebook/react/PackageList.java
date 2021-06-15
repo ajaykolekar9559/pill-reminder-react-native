@@ -17,6 +17,8 @@ import com.reactnativecommunity.asyncstorage.AsyncStoragePackage;
 import org.reactnative.maskedview.RNCMaskedViewPackage;
 // @react-native-community/netinfo
 import com.reactnativecommunity.netinfo.NetInfoPackage;
+// @react-native-community/toolbar-android
+import com.reactnativecommunity.toolbarandroid.ReactToolbarPackage;
 // react-native-config
 import com.lugg.ReactNativeConfig.ReactNativeConfigPackage;
 // react-native-gesture-handler
@@ -77,6 +79,7 @@ public class PackageList {
       new AsyncStoragePackage(),
       new RNCMaskedViewPackage(),
       new NetInfoPackage(),
+      new ReactToolbarPackage(),
       new ReactNativeConfigPackage(),
       new RNGestureHandlerPackage(),
       new ReanimatedPackage(),

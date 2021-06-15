@@ -1,7 +1,7 @@
 # compiler: R8
 # compiler_version: 1.5.68
 # min_api: 16
-# pg_map_id: 559cd35
+# pg_map_id: 9334831
 android.support.v4.media.MediaBrowserCompat$CustomActionCallback -> android.support.v4.media.a:
     void onError(java.lang.String,android.os.Bundle,android.os.Bundle) -> a
     void onProgressUpdate(java.lang.String,android.os.Bundle,android.os.Bundle) -> b
@@ -4866,6 +4866,7 @@ androidx.core.view.ViewCompat -> b.g.l.v:
     android.graphics.PorterDuff$Mode getBackgroundTintMode(android.view.View) -> i
     void setImportantForAutofill(android.view.View,int) -> i
     android.graphics.Rect getClipBounds(android.view.View) -> j
+    void setLayoutDirection(android.view.View,int) -> j
     android.view.Display getDisplay(android.view.View) -> k
     float getElevation(android.view.View) -> l
     boolean getFitsSystemWindows(android.view.View) -> m
@@ -13107,6 +13108,8 @@ com.facebook.drawee.generic.GenericDraweeHierarchyBuilder -> com.facebook.k0.f.b
     android.content.res.Resources mResources -> a
     com.facebook.drawee.generic.GenericDraweeHierarchy build() -> a
     com.facebook.drawee.generic.GenericDraweeHierarchyBuilder newInstance(android.content.res.Resources) -> a
+    com.facebook.drawee.generic.GenericDraweeHierarchyBuilder setActualImageScaleType(com.facebook.drawee.drawable.ScalingUtils$ScaleType) -> a
+    com.facebook.drawee.generic.GenericDraweeHierarchyBuilder setFadeDuration(int) -> a
     com.facebook.drawee.generic.GenericDraweeHierarchyBuilder setRoundingParams(com.facebook.drawee.generic.RoundingParams) -> a
     android.graphics.ColorFilter getActualImageColorFilter() -> b
     android.graphics.PointF getActualImageFocusPoint() -> c
@@ -13254,7 +13257,15 @@ com.facebook.drawee.view.DraweeView -> com.facebook.k0.i.c:
     void onDetach() -> d
     void maybeOverrideVisibilityHandling() -> e
 com.facebook.drawee.view.GenericDraweeView -> com.facebook.k0.i.d:
-com.facebook.drawee.view.SimpleDraweeView -> com.facebook.k0.i.e:
+com.facebook.drawee.view.MultiDraweeHolder -> com.facebook.k0.i.e:
+    boolean mIsAttached -> a
+    java.util.ArrayList mHolders -> b
+    void add(int,com.facebook.drawee.view.DraweeHolder) -> a
+    void add(com.facebook.drawee.view.DraweeHolder) -> a
+    void clear() -> a
+    void onAttach() -> b
+    void onDetach() -> c
+com.facebook.drawee.view.SimpleDraweeView -> com.facebook.k0.i.f:
     com.facebook.drawee.controller.AbstractDraweeControllerBuilder mControllerBuilder -> h
     void initialize(com.facebook.common.internal.Supplier) -> a
     void setActualImageResource(int,java.lang.Object) -> a
@@ -25430,6 +25441,67 @@ com.reactnativecommunity.netinfo.types.ConnectionType -> com.reactnativecommunit
     java.lang.String label -> b
     com.reactnativecommunity.netinfo.types.ConnectionType WIFI -> h
     com.reactnativecommunity.netinfo.types.ConnectionType UNKNOWN -> g
+com.reactnativecommunity.toolbarandroid.DrawableWithIntrinsicSize -> com.reactnativecommunity.toolbarandroid.a:
+    com.facebook.imagepipeline.image.ImageInfo mImageInfo -> e
+com.reactnativecommunity.toolbarandroid.ReactToolbar -> com.reactnativecommunity.toolbarandroid.b:
+    com.reactnativecommunity.toolbarandroid.ReactToolbar$IconControllerListener mNavIconControllerListener -> V
+    com.reactnativecommunity.toolbarandroid.ReactToolbar$IconControllerListener mOverflowIconControllerListener -> W
+    com.facebook.drawee.view.DraweeHolder mLogoHolder -> Q
+    com.facebook.drawee.view.DraweeHolder mNavIconHolder -> R
+    com.facebook.drawee.view.MultiDraweeHolder mActionsHolder -> T
+    com.facebook.drawee.view.DraweeHolder mOverflowIconHolder -> S
+    com.reactnativecommunity.toolbarandroid.ReactToolbar$IconControllerListener mLogoControllerListener -> U
+    java.lang.Runnable mLayoutRunnable -> a0
+    android.graphics.drawable.Drawable getDrawableByName(java.lang.String) -> a
+    com.reactnativecommunity.toolbarandroid.ReactToolbar$IconImageInfo getIconImageInfo(com.facebook.react.bridge.ReadableMap) -> a
+    void setIconSource(com.facebook.react.bridge.ReadableMap,com.reactnativecommunity.toolbarandroid.ReactToolbar$IconControllerListener,com.facebook.drawee.view.DraweeHolder) -> a
+    void setMenuItemIcon(android.view.MenuItem,com.facebook.react.bridge.ReadableMap) -> a
+    int getDrawableResourceByName(java.lang.String) -> b
+    void attachDraweeHolders() -> l
+    com.facebook.drawee.generic.GenericDraweeHierarchy createDraweeHierarchy() -> m
+    void detachDraweeHolders() -> n
+com.reactnativecommunity.toolbarandroid.ReactToolbar$1 -> com.reactnativecommunity.toolbarandroid.b$a:
+    com.reactnativecommunity.toolbarandroid.ReactToolbar this$0 -> d
+    void setDrawable(android.graphics.drawable.Drawable) -> a
+com.reactnativecommunity.toolbarandroid.ReactToolbar$2 -> com.reactnativecommunity.toolbarandroid.b$b:
+    com.reactnativecommunity.toolbarandroid.ReactToolbar this$0 -> d
+    void setDrawable(android.graphics.drawable.Drawable) -> a
+com.reactnativecommunity.toolbarandroid.ReactToolbar$3 -> com.reactnativecommunity.toolbarandroid.b$c:
+    com.reactnativecommunity.toolbarandroid.ReactToolbar this$0 -> d
+    void setDrawable(android.graphics.drawable.Drawable) -> a
+com.reactnativecommunity.toolbarandroid.ReactToolbar$4 -> com.reactnativecommunity.toolbarandroid.b$d:
+    com.reactnativecommunity.toolbarandroid.ReactToolbar this$0 -> b
+com.reactnativecommunity.toolbarandroid.ReactToolbar$ActionIconControllerListener -> com.reactnativecommunity.toolbarandroid.b$e:
+    android.view.MenuItem mItem -> d
+    com.reactnativecommunity.toolbarandroid.ReactToolbar this$0 -> e
+    void setDrawable(android.graphics.drawable.Drawable) -> a
+com.reactnativecommunity.toolbarandroid.ReactToolbar$IconControllerListener -> com.reactnativecommunity.toolbarandroid.b$f:
+    com.reactnativecommunity.toolbarandroid.ReactToolbar$IconImageInfo mIconImageInfo -> c
+    com.facebook.drawee.view.DraweeHolder mHolder -> b
+    void onFinalImageSet(java.lang.String,com.facebook.imagepipeline.image.ImageInfo,android.graphics.drawable.Animatable) -> a
+    void onFinalImageSet(java.lang.String,java.lang.Object,android.graphics.drawable.Animatable) -> a
+    void setDrawable(android.graphics.drawable.Drawable) -> a
+    void setIconImageInfo(com.reactnativecommunity.toolbarandroid.ReactToolbar$IconImageInfo) -> a
+com.reactnativecommunity.toolbarandroid.ReactToolbar$IconImageInfo -> com.reactnativecommunity.toolbarandroid.b$g:
+    int mWidth -> b
+    int mHeight -> c
+    int getHeight() -> a
+    int getWidth() -> b
+com.reactnativecommunity.toolbarandroid.ReactToolbarManager$1 -> com.reactnativecommunity.toolbarandroid.ReactToolbarManager$a:
+    com.facebook.react.uimanager.events.EventDispatcher val$mEventDispatcher -> b
+    com.reactnativecommunity.toolbarandroid.ReactToolbar val$view -> c
+com.reactnativecommunity.toolbarandroid.ReactToolbarManager$2 -> com.reactnativecommunity.toolbarandroid.ReactToolbarManager$b:
+    com.facebook.react.uimanager.events.EventDispatcher val$mEventDispatcher -> a
+    com.reactnativecommunity.toolbarandroid.ReactToolbar val$view -> b
+com.reactnativecommunity.toolbarandroid.ReactToolbarPackage -> com.reactnativecommunity.toolbarandroid.c:
+    java.util.List createNativeModules(com.facebook.react.bridge.ReactApplicationContext) -> a
+    java.util.List createViewManagers(com.facebook.react.bridge.ReactApplicationContext) -> b
+com.reactnativecommunity.toolbarandroid.events.ToolbarClickEvent -> com.reactnativecommunity.toolbarandroid.d.a:
+    int position -> f
+    boolean canCoalesce() -> a
+    void dispatch(com.facebook.react.uimanager.events.RCTEventEmitter) -> a
+    java.lang.String getEventName() -> d
+    int getPosition() -> j
 com.rn_starter_kit.MainActivity -> com.rn_starter_kit.MainActivity:
     java.lang.String getMainComponentName() -> p
 com.rn_starter_kit.MainApplication -> com.rn_starter_kit.MainApplication:
