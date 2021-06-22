@@ -7,6 +7,8 @@ import {
   getDoctorInfo,
   getPatientInfo,
   getPatientList,
+  addPillReminder,
+  getNotificationHistory,
 } from './user';
 
 export default {
@@ -25,5 +27,7 @@ export default {
     getDoctorInfo,
     getPatientInfo,
     getPatientList,
+    addPillReminder,
+    getNotificationHistory,
   },
 };

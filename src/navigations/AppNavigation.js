@@ -21,6 +21,7 @@ import DrawerContainer from "../components/DrawerContainer";
 import LogoutButton from '../components/LogoutButton';
 import AddDoctorScreen from '../screens/AddDoctorScreen';
 import DoctorListScreen from '../screens/DoctorListScreen';
+import SinglePatientScreen from "../screens/SinglePatientScreen";
 // login stack
 const LoginStack = createStackNavigator(
   {
@@ -44,7 +45,9 @@ const HomeStack = createStackNavigator(
   {
     Home: { screen: HomeScreen },
     Doctor: {screen: AddDoctorScreen},
-    PatientList: {screen: DoctorListScreen}
+    PatientList: {screen: DoctorListScreen},
+    singlePatient: {screen: SinglePatientScreen}
+
   },
   {
     initialRouteName: "Home",
