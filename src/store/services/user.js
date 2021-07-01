@@ -74,3 +74,23 @@ export const addDoctor = async (data) => {
     throw new Error(error.response.data.message);
   }
 };
+
+export const addPillReminder = async (data) => {
+  let url = `${HOST}/doctor/pill/add-pill`;
+  try {
+    const response = await PostAPIAxios(url, data);
+    return response.data;
+  } catch (error) {
+    throw new Error(error.response.data.message);
+  }
+};
+
+export const getNotificationHistory = async () => {
+  let url = `${HOST}/patient/notification`;
+  try {
+    const response = await GetAPIAxios(url);
+    return response.data;
+  } catch (error) {
+    throw new Error(error.response.data.message);
+  }
+};

@@ -105,3 +105,29 @@ export const addDoctor = (data) => {
     }
   };
 };
+
+export const addPillReminder = (data) => {
+  return async (dispatch) => {
+    try {
+      let dataD = await Services.user.addPillReminder(data);
+      if (dataD) {
+        return dataD;
+      }
+    } catch (error) {
+      throw new Error(error.message);
+    }
+  };
+};
+
+export const getNotificationHistory = () => {
+  return async (dispatch) => {
+    try {
+      let all = await Services.user.getNotificationHistory();
+      if (all) {
+        return all;
+      }
+    } catch (error) {
+      throw new Error(error.message);
+    }
+  };
+};

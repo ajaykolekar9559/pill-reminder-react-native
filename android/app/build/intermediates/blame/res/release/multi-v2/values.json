@@ -190,11 +190,11 @@
                 {
                     "source": "/Users/ajaykolekar/Desktop/react-native-starter-kit/android/app/build/generated/res/resValues/release/values/gradleResValues.xml",
                     "from": {
-                        "startLines": "8,9,6",
+                        "startLines": "6,7,9",
                         "startColumns": "4,4,4",
-                        "startOffsets": "302,366,151",
+                        "startOffsets": "159,223,333",
                         "endColumns": "63,68,105",
-                        "endOffsets": "361,430,252"
+                        "endOffsets": "218,287,434"
                     },
                     "to": {
                         "startLines": "677,678,685",

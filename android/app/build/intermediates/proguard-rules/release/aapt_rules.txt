@@ -1,18 +1,18 @@
 # Referenced at /Users/ajaykolekar/Desktop/react-native-starter-kit/android/app/build/intermediates/merged_manifests/release/AndroidManifest.xml:16
 -keep class androidx.core.app.CoreComponentFactory { <init>(); }
-# Referenced at /Users/ajaykolekar/Desktop/react-native-starter-kit/android/app/build/intermediates/merged_manifests/release/AndroidManifest.xml:81
+# Referenced at /Users/ajaykolekar/Desktop/react-native-starter-kit/android/app/build/intermediates/merged_manifests/release/AndroidManifest.xml:80
 -keep class com.facebook.CurrentAccessTokenExpirationBroadcastReceiver { <init>(); }
-# Referenced at /Users/ajaykolekar/Desktop/react-native-starter-kit/android/app/build/intermediates/merged_manifests/release/AndroidManifest.xml:53
--keep class com.facebook.CustomTabActivity { <init>(); }
 # Referenced at /Users/ajaykolekar/Desktop/react-native-starter-kit/android/app/build/intermediates/merged_manifests/release/AndroidManifest.xml:52
+-keep class com.facebook.CustomTabActivity { <init>(); }
+# Referenced at /Users/ajaykolekar/Desktop/react-native-starter-kit/android/app/build/intermediates/merged_manifests/release/AndroidManifest.xml:51
 -keep class com.facebook.CustomTabMainActivity { <init>(); }
-# Referenced at /Users/ajaykolekar/Desktop/react-native-starter-kit/android/app/build/intermediates/merged_manifests/release/AndroidManifest.xml:48
+# Referenced at /Users/ajaykolekar/Desktop/react-native-starter-kit/android/app/build/intermediates/merged_manifests/release/AndroidManifest.xml:47
 -keep class com.facebook.FacebookActivity { <init>(); }
-# Referenced at /Users/ajaykolekar/Desktop/react-native-starter-kit/android/app/build/intermediates/merged_manifests/release/AndroidManifest.xml:76
+# Referenced at /Users/ajaykolekar/Desktop/react-native-starter-kit/android/app/build/intermediates/merged_manifests/release/AndroidManifest.xml:75
 -keep class com.facebook.internal.FacebookInitProvider { <init>(); }
-# Referenced at /Users/ajaykolekar/Desktop/react-native-starter-kit/android/app/build/intermediates/merged_manifests/release/AndroidManifest.xml:42
+# Referenced at /Users/ajaykolekar/Desktop/react-native-starter-kit/android/app/build/intermediates/merged_manifests/release/AndroidManifest.xml:41
 -keep class com.facebook.react.devsupport.DevSettingsActivity { <init>(); }
-# Referenced at /Users/ajaykolekar/Desktop/react-native-starter-kit/android/app/build/intermediates/merged_manifests/release/AndroidManifest.xml:30
+# Referenced at /Users/ajaykolekar/Desktop/react-native-starter-kit/android/app/build/intermediates/merged_manifests/release/AndroidManifest.xml:29
 -keep class com.rn_starter_kit.MainActivity { <init>(); }
 # Referenced at /Users/ajaykolekar/Desktop/react-native-starter-kit/android/app/build/intermediates/merged_manifests/release/AndroidManifest.xml:16
 -keep class com.rn_starter_kit.MainApplication { <init>(); }

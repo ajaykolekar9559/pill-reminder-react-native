@@ -1,7 +1,7 @@
 # compiler: R8
 # compiler_version: 1.5.68
 # min_api: 16
-# pg_map_id: 9334831
+# pg_map_id: 29524a4
 android.support.v4.media.MediaBrowserCompat$CustomActionCallback -> android.support.v4.media.a:
     void onError(java.lang.String,android.os.Bundle,android.os.Bundle) -> a
     void onProgressUpdate(java.lang.String,android.os.Bundle,android.os.Bundle) -> b
@@ -11884,6 +11884,7 @@ com.facebook.common.logging.FLog -> com.facebook.common.j.a:
     void v(java.lang.Class,java.lang.String,java.lang.Object,java.lang.Object) -> a
     void v(java.lang.Class,java.lang.String,java.lang.Object,java.lang.Object,java.lang.Object) -> a
     void v(java.lang.Class,java.lang.String,java.lang.Object,java.lang.Object,java.lang.Object,java.lang.Object) -> a
+    void w(java.lang.String,java.lang.Throwable,java.lang.String,java.lang.Object[]) -> a
     void e(java.lang.String,java.lang.String) -> b
     void e(java.lang.String,java.lang.String,java.lang.Throwable) -> b
     void v(java.lang.Class,java.lang.String) -> b
@@ -13760,16 +13761,18 @@ com.facebook.imagepipeline.core.ImagePipeline -> com.facebook.m0.f.h:
     com.facebook.datasource.DataSource fetchDecodedImage(com.facebook.imagepipeline.request.ImageRequest,java.lang.Object,com.facebook.imagepipeline.request.ImageRequest$RequestLevel,com.facebook.imagepipeline.listener.RequestListener) -> a
     com.facebook.imagepipeline.listener.RequestListener getRequestListenerForRequest(com.facebook.imagepipeline.request.ImageRequest,com.facebook.imagepipeline.listener.RequestListener) -> a
     boolean isInBitmapMemoryCache(android.net.Uri) -> a
+    boolean isInBitmapMemoryCache(com.facebook.imagepipeline.request.ImageRequest) -> a
     boolean isInDiskCacheSync(android.net.Uri,com.facebook.imagepipeline.request.ImageRequest$CacheChoice) -> a
-    boolean isInDiskCacheSync(com.facebook.imagepipeline.request.ImageRequest) -> a
     com.facebook.datasource.DataSource prefetchToDiskCache(com.facebook.imagepipeline.request.ImageRequest,java.lang.Object,com.facebook.imagepipeline.common.Priority) -> a
     com.facebook.datasource.DataSource submitFetchRequest(com.facebook.imagepipeline.producers.Producer,com.facebook.imagepipeline.request.ImageRequest,com.facebook.imagepipeline.request.ImageRequest$RequestLevel,java.lang.Object,com.facebook.imagepipeline.listener.RequestListener) -> a
     com.facebook.datasource.DataSource submitPrefetchRequest(com.facebook.imagepipeline.producers.Producer,com.facebook.imagepipeline.request.ImageRequest,com.facebook.imagepipeline.request.ImageRequest$RequestLevel,java.lang.Object,com.facebook.imagepipeline.common.Priority) -> a
     void clearDiskCaches() -> b
+    com.facebook.datasource.DataSource fetchImageFromBitmapCache(com.facebook.imagepipeline.request.ImageRequest,java.lang.Object) -> b
     boolean isInDiskCacheSync(android.net.Uri) -> b
-    com.facebook.datasource.DataSource prefetchToDiskCache(com.facebook.imagepipeline.request.ImageRequest,java.lang.Object) -> b
+    boolean isInDiskCacheSync(com.facebook.imagepipeline.request.ImageRequest) -> b
     void clearMemoryCaches() -> c
     com.facebook.common.internal.Predicate predicateForUri(android.net.Uri) -> c
+    com.facebook.datasource.DataSource prefetchToDiskCache(com.facebook.imagepipeline.request.ImageRequest,java.lang.Object) -> c
     java.lang.String generateUniqueFutureId() -> d
     com.facebook.imagepipeline.cache.MemoryCache getBitmapMemoryCache() -> e
     com.facebook.imagepipeline.cache.CacheKeyFactory getCacheKeyFactory() -> f
@@ -14160,7 +14163,10 @@ com.facebook.imagepipeline.datasource.AbstractProducerToDataSourceAdapter$1 -> c
     void onFailureImpl(java.lang.Throwable) -> b
     void onNewResultImpl(java.lang.Object,int) -> b
     void onProgressUpdateImpl(float) -> b
-com.facebook.imagepipeline.datasource.CloseableProducerToDataSourceAdapter -> com.facebook.m0.g.b:
+com.facebook.imagepipeline.datasource.BaseBitmapDataSubscriber -> com.facebook.m0.g.b:
+    void onNewResultImpl(android.graphics.Bitmap) -> a
+    void onNewResultImpl(com.facebook.datasource.DataSource) -> f
+com.facebook.imagepipeline.datasource.CloseableProducerToDataSourceAdapter -> com.facebook.m0.g.c:
     void closeResult(com.facebook.common.references.CloseableReference) -> a
     void closeResult(java.lang.Object) -> a
     com.facebook.datasource.DataSource create(com.facebook.imagepipeline.producers.Producer,com.facebook.imagepipeline.producers.SettableProducerContext,com.facebook.imagepipeline.listener.RequestListener) -> a
@@ -14168,7 +14174,7 @@ com.facebook.imagepipeline.datasource.CloseableProducerToDataSourceAdapter -> co
     void onNewResultImpl(java.lang.Object,int) -> a
     com.facebook.common.references.CloseableReference getResult() -> b
     java.lang.Object getResult() -> b
-com.facebook.imagepipeline.datasource.ProducerToDataSourceAdapter -> com.facebook.m0.g.c:
+com.facebook.imagepipeline.datasource.ProducerToDataSourceAdapter -> com.facebook.m0.g.d:
     com.facebook.datasource.DataSource create(com.facebook.imagepipeline.producers.Producer,com.facebook.imagepipeline.producers.SettableProducerContext,com.facebook.imagepipeline.listener.RequestListener) -> a
 com.facebook.imagepipeline.debug.CloseableReferenceLeakTracker -> com.facebook.m0.h.a:
     boolean isSet() -> a
@@ -14232,6 +14238,7 @@ com.facebook.imagepipeline.drawable.DrawableFactory -> com.facebook.m0.j.a:
     boolean supportsImageType(com.facebook.imagepipeline.image.CloseableImage) -> a
     android.graphics.drawable.Drawable createDrawable(com.facebook.imagepipeline.image.CloseableImage) -> b
 com.facebook.imagepipeline.image.CloseableBitmap -> com.facebook.m0.k.a:
+    android.graphics.Bitmap getUnderlyingBitmap() -> r
 com.facebook.imagepipeline.image.CloseableImage -> com.facebook.m0.k.b:
     com.facebook.imagepipeline.image.QualityInfo getQualityInfo() -> c
     int getSizeInBytes() -> d
@@ -14248,9 +14255,9 @@ com.facebook.imagepipeline.image.CloseableStaticBitmap -> com.facebook.m0.k.c:
     int getWidth() -> b
     com.facebook.imagepipeline.image.QualityInfo getQualityInfo() -> c
     int getSizeInBytes() -> d
-    int getExifOrientation() -> r
-    int getRotationAngle() -> s
-    android.graphics.Bitmap getUnderlyingBitmap() -> t
+    android.graphics.Bitmap getUnderlyingBitmap() -> r
+    int getExifOrientation() -> s
+    int getRotationAngle() -> t
     com.facebook.common.references.CloseableReference detachBitmapReference() -> u
 com.facebook.imagepipeline.image.EncodedImage -> com.facebook.m0.k.d:
     com.facebook.common.internal.Supplier mInputStreamSupplier -> c
@@ -15649,9 +15656,10 @@ com.facebook.imagepipeline.request.ImageRequest -> com.facebook.m0.o.c:
     com.facebook.imagepipeline.request.ImageRequest$RequestLevel mLowestPermittedRequestLevel -> l
     com.facebook.imagepipeline.common.ResizeOptions mResizeOptions -> h
     com.facebook.imagepipeline.common.RotationOptions mRotationOptions -> i
+    com.facebook.imagepipeline.request.ImageRequest fromUri(android.net.Uri) -> a
     com.facebook.imagepipeline.common.BytesRange getBytesRange() -> a
-    int getSourceUriType(android.net.Uri) -> a
     com.facebook.imagepipeline.request.ImageRequest$CacheChoice getCacheChoice() -> b
+    int getSourceUriType(android.net.Uri) -> b
     com.facebook.imagepipeline.common.ImageDecodeOptions getImageDecodeOptions() -> c
     boolean getLocalThumbnailPreviewsEnabled() -> d
     com.facebook.imagepipeline.request.ImageRequest$RequestLevel getLowestPermittedRequestLevel() -> e
@@ -25276,6 +25284,755 @@ com.google.zxing.qrcode.encoder.QRCode -> d.b.b.o.c.f:
     void setMode(com.google.zxing.qrcode.decoder.Mode) -> a
     void setVersion(com.google.zxing.qrcode.decoder.Version) -> a
     boolean isValidMaskPattern(int) -> b
+com.horcrux.svg.Brush -> com.horcrux.svg.a:
+    com.horcrux.svg.Brush$BrushType mType -> a
+    com.facebook.react.bridge.ReadableArray mColors -> c
+    android.graphics.Matrix mMatrix -> f
+    com.horcrux.svg.SVGLength[] mPoints -> b
+    boolean mUseContentObjectBoundingBoxUnits -> e
+    android.graphics.Rect mUserSpaceBoundingBox -> g
+    com.horcrux.svg.PatternView mPattern -> h
+    boolean mUseObjectBoundingBox -> d
+    android.graphics.RectF getPaintRect(android.graphics.RectF) -> a
+    double getVal(com.horcrux.svg.SVGLength,double,float,float) -> a
+    void parseGradientStops(com.facebook.react.bridge.ReadableArray,int,float[],int[],float) -> a
+    void setContentUnits(com.horcrux.svg.Brush$BrushUnits) -> a
+    void setGradientColors(com.facebook.react.bridge.ReadableArray) -> a
+    void setGradientTransform(android.graphics.Matrix) -> a
+    void setPattern(com.horcrux.svg.PatternView) -> a
+    void setUserSpaceBoundingBox(android.graphics.Rect) -> a
+    void setupPaint(android.graphics.Paint,android.graphics.RectF,float,float) -> a
+com.horcrux.svg.Brush$BrushType -> com.horcrux.svg.a$a:
+    com.horcrux.svg.Brush$BrushType LINEAR_GRADIENT -> b
+    com.horcrux.svg.Brush$BrushType RADIAL_GRADIENT -> c
+    com.horcrux.svg.Brush$BrushType PATTERN -> d
+    com.horcrux.svg.Brush$BrushType[] $VALUES -> e
+com.horcrux.svg.Brush$BrushUnits -> com.horcrux.svg.a$b:
+    com.horcrux.svg.Brush$BrushUnits USER_SPACE_ON_USE -> c
+    com.horcrux.svg.Brush$BrushUnits OBJECT_BOUNDING_BOX -> b
+    com.horcrux.svg.Brush$BrushUnits[] $VALUES -> d
+com.horcrux.svg.CircleView -> com.horcrux.svg.b:
+    com.horcrux.svg.SVGLength mCy -> K0
+    com.horcrux.svg.SVGLength mCx -> J0
+    com.horcrux.svg.SVGLength mR -> L0
+    android.graphics.Path getPath(android.graphics.Canvas,android.graphics.Paint) -> c
+com.horcrux.svg.ClipPathView -> com.horcrux.svg.c:
+    void draw(android.graphics.Canvas,android.graphics.Paint,float) -> a
+    int hitTest(float[]) -> a
+    void mergeProperties(com.horcrux.svg.RenderableView) -> a
+    boolean isResponsible() -> g
+    void saveDefinition() -> h
+    void resetProperties() -> j
+com.horcrux.svg.DefinitionView -> com.horcrux.svg.d:
+    void draw(android.graphics.Canvas,android.graphics.Paint,float) -> a
+    int hitTest(float[]) -> a
+    android.graphics.Path getPath(android.graphics.Canvas,android.graphics.Paint) -> c
+    boolean isResponsible() -> g
+com.horcrux.svg.DefsView -> com.horcrux.svg.e:
+    void draw(android.graphics.Canvas,android.graphics.Paint,float) -> a
+    void saveDefinition() -> h
+com.horcrux.svg.ElementType -> com.horcrux.svg.f:
+    com.horcrux.svg.ElementType kCGPathElementCloseSubpath -> f
+    com.horcrux.svg.ElementType kCGPathElementAddLineToPoint -> e
+    com.horcrux.svg.ElementType kCGPathElementMoveToPoint -> d
+    com.horcrux.svg.ElementType kCGPathElementAddQuadCurveToPoint -> c
+    com.horcrux.svg.ElementType kCGPathElementAddCurveToPoint -> b
+    com.horcrux.svg.ElementType[] $VALUES -> g
+com.horcrux.svg.EllipseView -> com.horcrux.svg.g:
+    com.horcrux.svg.SVGLength mCy -> K0
+    com.horcrux.svg.SVGLength mCx -> J0
+    com.horcrux.svg.SVGLength mRy -> M0
+    com.horcrux.svg.SVGLength mRx -> L0
+    android.graphics.Path getPath(android.graphics.Canvas,android.graphics.Paint) -> c
+com.horcrux.svg.FontData -> com.horcrux.svg.h:
+    java.lang.String fontFeatureSettings -> g
+    boolean manualKerning -> o
+    java.lang.String fontVariationSettings -> h
+    double fontSize -> a
+    int absoluteFontWeight -> f
+    com.horcrux.svg.FontData Defaults -> p
+    com.horcrux.svg.TextProperties$TextAnchor textAnchor -> j
+    com.horcrux.svg.TextProperties$FontWeight fontWeight -> e
+    double kerning -> l
+    double wordSpacing -> m
+    com.horcrux.svg.TextProperties$TextDecoration textDecoration -> k
+    double letterSpacing -> n
+    java.lang.String fontFamily -> b
+    com.horcrux.svg.TextProperties$FontStyle fontStyle -> c
+    com.facebook.react.bridge.ReadableMap fontData -> d
+    com.horcrux.svg.TextProperties$FontVariantLigatures fontVariantLigatures -> i
+    void handleNumericWeight(com.horcrux.svg.FontData,double) -> a
+    void setInheritedWeight(com.horcrux.svg.FontData) -> a
+    double toAbsolute(com.facebook.react.bridge.ReadableMap,java.lang.String,double,double,double) -> a
+com.horcrux.svg.FontData$AbsoluteFontWeight -> com.horcrux.svg.h$a:
+    com.horcrux.svg.TextProperties$FontWeight[] WEIGHTS -> a
+    int[] absoluteFontWeights -> b
+    int bolder(int) -> a
+    int from(com.horcrux.svg.TextProperties$FontWeight,com.horcrux.svg.FontData) -> a
+    int lighter(int) -> b
+    com.horcrux.svg.TextProperties$FontWeight nearestFontWeight(int) -> c
+com.horcrux.svg.ForeignObjectView -> com.horcrux.svg.i:
+    com.horcrux.svg.SVGLength mH -> O0
+    com.horcrux.svg.SVGLength mW -> N0
+    android.graphics.Bitmap fakeBitmap -> P0
+    android.graphics.Canvas fake -> Q0
+    com.horcrux.svg.SVGLength mY -> M0
+    com.horcrux.svg.SVGLength mX -> L0
+    void draw(android.graphics.Canvas,android.graphics.Paint,float) -> a
+    void drawGroup(android.graphics.Canvas,android.graphics.Paint,float) -> d
+com.horcrux.svg.GlyphContext -> com.horcrux.svg.j:
+    int mRIndex -> K
+    int mDXIndex -> I
+    java.util.ArrayList mXIndices -> g
+    double mX -> s
+    com.horcrux.svg.SVGLength[] mYs -> x
+    int mXIndex -> G
+    java.util.ArrayList mDYsContext -> e
+    double mDX -> u
+    int mDYsIndex -> E
+    java.util.ArrayList mYsContext -> c
+    int mYsIndex -> C
+    java.util.ArrayList mFontContext -> a
+    com.horcrux.svg.SVGLength[] mDYs -> z
+    java.util.ArrayList mDYsIndices -> o
+    java.util.ArrayList mYsIndices -> m
+    java.util.ArrayList mRIndices -> k
+    double[] mRs -> A
+    java.util.ArrayList mDXIndices -> i
+    float mWidth -> N
+    int mTop -> L
+    int mDYIndex -> J
+    int mYIndex -> H
+    com.horcrux.svg.SVGLength[] mXs -> w
+    int mRsIndex -> F
+    java.util.ArrayList mRsContext -> f
+    double mY -> t
+    int mDXsIndex -> D
+    java.util.ArrayList mDXsContext -> d
+    double mDY -> v
+    int mXsIndex -> B
+    java.util.ArrayList mXsContext -> b
+    com.horcrux.svg.SVGLength[] mDXs -> y
+    java.util.ArrayList mDXsIndices -> n
+    java.util.ArrayList mXsIndices -> l
+    com.horcrux.svg.FontData topFont -> r
+    java.util.ArrayList mDYIndices -> j
+    java.util.ArrayList mYIndices -> h
+    double mFontSize -> q
+    float mHeight -> O
+    java.util.ArrayList mRsIndices -> p
+    float mScale -> M
+    double[] getDoubleArrayFromReadableArray(java.util.ArrayList) -> a
+    com.horcrux.svg.FontData getFont() -> a
+    com.horcrux.svg.FontData getTopOrParentFont(com.horcrux.svg.GroupView) -> a
+    void incrementIndices(java.util.ArrayList,int) -> a
+    double nextX(double) -> a
+    void pushContext(com.horcrux.svg.GroupView,com.facebook.react.bridge.ReadableMap) -> a
+    void pushContext(boolean,com.horcrux.svg.TextView,com.facebook.react.bridge.ReadableMap,java.util.ArrayList,java.util.ArrayList,java.util.ArrayList,java.util.ArrayList,java.util.ArrayList) -> a
+    double getFontSize() -> b
+    com.horcrux.svg.SVGLength[] getStringArrayFromReadableArray(java.util.ArrayList) -> b
+    void pushNodeAndFont(com.horcrux.svg.GroupView,com.facebook.react.bridge.ReadableMap) -> b
+    float getHeight() -> c
+    float getWidth() -> d
+    double nextDeltaX() -> e
+    double nextDeltaY() -> f
+    double nextRotation() -> g
+    double nextY() -> h
+    void popContext() -> i
+    void pushIndices() -> j
+    void reset() -> k
+com.horcrux.svg.GlyphPathBag -> com.horcrux.svg.k:
+    int[][] data -> b
+    android.graphics.Paint paint -> c
+    java.util.ArrayList paths -> a
+    int getIndex(char) -> a
+    android.graphics.Path getOrCreateAndCache(char,java.lang.String) -> a
+com.horcrux.svg.GroupView -> com.horcrux.svg.l:
+    com.horcrux.svg.GlyphContext mGlyphContext -> K0
+    com.facebook.react.bridge.ReadableMap mFont -> J0
+    void draw(android.graphics.Canvas,android.graphics.Paint,float) -> a
+    android.graphics.Path getPath(android.graphics.Canvas,android.graphics.Paint,android.graphics.Region$Op) -> a
+    int hitTest(float[]) -> a
+    java.lang.Object requireNonNull(java.lang.Object) -> a
+    void setupGlyphContext(android.graphics.Canvas) -> a
+    android.graphics.Path getPath(android.graphics.Canvas,android.graphics.Paint) -> c
+    void drawGroup(android.graphics.Canvas,android.graphics.Paint,float) -> d
+    void drawPath(android.graphics.Canvas,android.graphics.Paint,float) -> e
+    void saveDefinition() -> h
+    void resetProperties() -> j
+    com.horcrux.svg.GlyphContext getGlyphContext() -> k
+    com.horcrux.svg.GlyphContext getTextRootGlyphContext() -> l
+    void popGlyphContext() -> m
+    void pushGlyphContext() -> n
+com.horcrux.svg.ImageView -> com.horcrux.svg.m:
+    int mMeetOrSlice -> R0
+    com.horcrux.svg.SVGLength mY -> K0
+    com.horcrux.svg.SVGLength mX -> J0
+    java.lang.String mAlign -> Q0
+    com.horcrux.svg.SVGLength mH -> M0
+    com.horcrux.svg.SVGLength mW -> L0
+    java.lang.String uriString -> N0
+    int mImageWidth -> O0
+    int mImageHeight -> P0
+    java.util.concurrent.atomic.AtomicBoolean mLoading -> S0
+    java.util.concurrent.atomic.AtomicBoolean access$000(com.horcrux.svg.ImageView) -> a
+    void doRender(android.graphics.Canvas,android.graphics.Paint,android.graphics.Bitmap,float) -> a
+    void draw(android.graphics.Canvas,android.graphics.Paint,float) -> a
+    void loadBitmap(com.facebook.imagepipeline.core.ImagePipeline,com.facebook.imagepipeline.request.ImageRequest) -> a
+    void tryRenderFromBitmapCache(com.facebook.imagepipeline.core.ImagePipeline,com.facebook.imagepipeline.request.ImageRequest,android.graphics.Canvas,android.graphics.Paint,float) -> a
+    android.graphics.Path getPath(android.graphics.Canvas,android.graphics.Paint) -> c
+    android.graphics.RectF getRect() -> k
+com.horcrux.svg.ImageView$1 -> com.horcrux.svg.m$a:
+    com.horcrux.svg.ImageView this$0 -> a
+    void onNewResultImpl(android.graphics.Bitmap) -> a
+    void onFailureImpl(com.facebook.datasource.DataSource) -> e
+com.horcrux.svg.LineView -> com.horcrux.svg.n:
+    com.horcrux.svg.SVGLength mY1 -> K0
+    com.horcrux.svg.SVGLength mX1 -> J0
+    com.horcrux.svg.SVGLength mY2 -> M0
+    com.horcrux.svg.SVGLength mX2 -> L0
+    android.graphics.Path getPath(android.graphics.Canvas,android.graphics.Paint) -> c
+com.horcrux.svg.LinearGradientView -> com.horcrux.svg.o:
+    com.horcrux.svg.SVGLength mX2 -> t0
+    com.horcrux.svg.SVGLength mY2 -> u0
+    com.horcrux.svg.SVGLength mX1 -> r0
+    com.horcrux.svg.SVGLength mY1 -> s0
+    float[] sRawMatrix -> y0
+    android.graphics.Matrix mMatrix -> x0
+    com.facebook.react.bridge.ReadableArray mGradient -> v0
+    com.horcrux.svg.Brush$BrushUnits mGradientUnits -> w0
+    void saveDefinition() -> h
+com.horcrux.svg.MarkerView -> com.horcrux.svg.p:
+    com.horcrux.svg.SVGLength mRefY -> M0
+    com.horcrux.svg.SVGLength mRefX -> L0
+    float mMinY -> S0
+    float mMinX -> R0
+    float mVbHeight -> U0
+    float mVbWidth -> T0
+    com.horcrux.svg.SVGLength mMarkerHeight -> O0
+    java.lang.String mAlign -> V0
+    int mMeetOrSlice -> W0
+    com.horcrux.svg.SVGLength mMarkerWidth -> N0
+    android.graphics.Matrix markerTransform -> X0
+    java.lang.String mOrient -> Q0
+    java.lang.String mMarkerUnits -> P0
+    void renderMarker(android.graphics.Canvas,android.graphics.Paint,float,com.horcrux.svg.RNSVGMarkerPosition,float) -> a
+    void saveDefinition() -> h
+com.horcrux.svg.MaskView -> com.horcrux.svg.q:
+    com.horcrux.svg.SVGLength mH -> O0
+    com.horcrux.svg.SVGLength mW -> N0
+    com.horcrux.svg.SVGLength mY -> M0
+    com.horcrux.svg.SVGLength mX -> L0
+    float[] sRawMatrix -> Q0
+    android.graphics.Matrix mMatrix -> P0
+    void saveDefinition() -> h
+com.horcrux.svg.PathElement -> com.horcrux.svg.r:
+    com.horcrux.svg.Point[] points -> b
+    com.horcrux.svg.ElementType type -> a
+com.horcrux.svg.PathParser -> com.horcrux.svg.s:
+    float mPenDownY -> l
+    boolean mPenDown -> m
+    float mPenDownX -> k
+    float mPivotY -> j
+    float mPivotX -> i
+    float mPenY -> h
+    float mPenX -> g
+    java.util.ArrayList elements -> f
+    float mScale -> a
+    int i -> b
+    android.graphics.Path mPath -> e
+    int l -> c
+    java.lang.String s -> d
+    void arc(float,float,float,boolean,boolean,float,float) -> a
+    void arcToBezier(float,float,float,float,float,float,boolean,float) -> a
+    void close() -> a
+    void cubicTo(float,float,float,float,float,float) -> a
+    boolean is_absolute(char) -> a
+    void line(float,float) -> a
+    android.graphics.Path parse(java.lang.String) -> a
+    void quadraticBezierCurve(float,float,float,float) -> a
+    double round(double) -> a
+    void arcTo(float,float,float,boolean,boolean,float,float) -> b
+    void curve(float,float,float,float,float,float) -> b
+    boolean is_cmd(char) -> b
+    void lineTo(float,float) -> b
+    boolean parse_flag() -> b
+    void quadraticBezierCurveTo(float,float,float,float) -> b
+    void curveTo(float,float,float,float,float,float) -> c
+    boolean is_number_start(char) -> c
+    void move(float,float) -> c
+    float parse_list_number() -> c
+    void smoothCurve(float,float,float,float) -> c
+    void moveTo(float,float) -> d
+    void parse_list_separator() -> d
+    void smoothCurveTo(float,float,float,float) -> d
+    float parse_number() -> e
+    void smoothQuadraticBezierCurve(float,float) -> e
+    void setPenDown() -> f
+    void smoothQuadraticBezierCurveTo(float,float) -> f
+    void skip_digits() -> g
+    void skip_spaces() -> h
+com.horcrux.svg.PathView -> com.horcrux.svg.t:
+    android.graphics.Path mPath -> J0
+    android.graphics.Path getPath(android.graphics.Canvas,android.graphics.Paint) -> c
+com.horcrux.svg.PatternView -> com.horcrux.svg.u:
+    com.horcrux.svg.SVGLength mY -> M0
+    com.horcrux.svg.SVGLength mX -> L0
+    float mMinY -> S0
+    float mMinX -> R0
+    float mVbHeight -> U0
+    float mVbWidth -> T0
+    com.horcrux.svg.SVGLength mH -> O0
+    java.lang.String mAlign -> V0
+    int mMeetOrSlice -> W0
+    float[] sRawMatrix -> Y0
+    com.horcrux.svg.SVGLength mW -> N0
+    com.horcrux.svg.Brush$BrushUnits mPatternUnits -> P0
+    android.graphics.Matrix mMatrix -> X0
+    com.horcrux.svg.Brush$BrushUnits mPatternContentUnits -> Q0
+    void saveDefinition() -> h
+com.horcrux.svg.Point -> com.horcrux.svg.v:
+    double x -> a
+    double y -> b
+com.horcrux.svg.PropHelper -> com.horcrux.svg.w:
+    double fromRelative(com.horcrux.svg.SVGLength,double,double,double,double) -> a
+    double fromRelative(java.lang.String,double,double,double) -> a
+    int toMatrixData(com.facebook.react.bridge.ReadableArray,float[],float) -> a
+com.horcrux.svg.PropHelper$1 -> com.horcrux.svg.w$a:
+    int[] $SwitchMap$com$horcrux$svg$SVGLength$UnitType -> a
+com.horcrux.svg.RNSVGMarkerPosition -> com.horcrux.svg.x:
+    com.horcrux.svg.Point origin -> b
+    com.horcrux.svg.Point subpath_start_ -> g
+    com.horcrux.svg.Point in_slope_ -> h
+    boolean auto_start_reverse_ -> j
+    com.horcrux.svg.Point origin_ -> f
+    double angle -> c
+    com.horcrux.svg.Point out_slope_ -> i
+    java.util.ArrayList positions_ -> d
+    int element_index_ -> e
+    com.horcrux.svg.RNSVGMarkerType type -> a
+    double BisectingAngle(double,double) -> a
+    void ComputeQuadTangents(com.horcrux.svg.SegmentData,com.horcrux.svg.Point,com.horcrux.svg.Point,com.horcrux.svg.Point) -> a
+    double CurrentAngle(com.horcrux.svg.RNSVGMarkerType) -> a
+    com.horcrux.svg.SegmentData ExtractPathElementFeatures(com.horcrux.svg.PathElement) -> a
+    void PathIsDone() -> a
+    double SlopeAngleRadians(com.horcrux.svg.Point) -> a
+    java.util.ArrayList fromPath(java.util.ArrayList) -> a
+    double rad2deg(double) -> a
+    com.horcrux.svg.Point subtract(com.horcrux.svg.Point,com.horcrux.svg.Point) -> a
+    void UpdateFromPathElement(com.horcrux.svg.PathElement) -> b
+    boolean isZero(com.horcrux.svg.Point) -> b
+com.horcrux.svg.RNSVGMarkerPosition$1 -> com.horcrux.svg.x$a:
+    int[] $SwitchMap$com$horcrux$svg$ElementType -> b
+    int[] $SwitchMap$com$horcrux$svg$RNSVGMarkerType -> a
+com.horcrux.svg.RNSVGMarkerType -> com.horcrux.svg.y:
+    com.horcrux.svg.RNSVGMarkerType[] $VALUES -> e
+    com.horcrux.svg.RNSVGMarkerType kStartMarker -> b
+    com.horcrux.svg.RNSVGMarkerType kMidMarker -> c
+    com.horcrux.svg.RNSVGMarkerType kEndMarker -> d
+com.horcrux.svg.RadialGradientView -> com.horcrux.svg.z:
+    com.horcrux.svg.SVGLength mRx -> t0
+    com.horcrux.svg.SVGLength mRy -> u0
+    com.horcrux.svg.SVGLength mFx -> r0
+    com.horcrux.svg.Brush$BrushUnits mGradientUnits -> y0
+    com.horcrux.svg.SVGLength mFy -> s0
+    android.graphics.Matrix mMatrix -> z0
+    float[] sRawMatrix -> A0
+    com.horcrux.svg.SVGLength mCx -> v0
+    com.horcrux.svg.SVGLength mCy -> w0
+    com.facebook.react.bridge.ReadableArray mGradient -> x0
+    void saveDefinition() -> h
+com.horcrux.svg.RectView -> com.horcrux.svg.a0:
+    com.horcrux.svg.SVGLength mRy -> O0
+    com.horcrux.svg.SVGLength mRx -> N0
+    com.horcrux.svg.SVGLength mY -> K0
+    com.horcrux.svg.SVGLength mX -> J0
+    com.horcrux.svg.SVGLength mH -> M0
+    com.horcrux.svg.SVGLength mW -> L0
+    android.graphics.Path getPath(android.graphics.Canvas,android.graphics.Paint) -> c
+com.horcrux.svg.RenderableView -> com.horcrux.svg.b0:
+    android.graphics.Paint$Cap strokeLinecap -> y0
+    android.graphics.Paint$Join strokeLinejoin -> z0
+    com.horcrux.svg.SVGLength[] strokeDasharray -> t0
+    java.util.regex.Pattern regex -> I0
+    com.horcrux.svg.SVGLength strokeWidth -> u0
+    int vectorEffect -> r0
+    float strokeMiterlimit -> w0
+    java.util.ArrayList mLastMergedList -> D0
+    float strokeOpacity -> v0
+    java.util.ArrayList mPropList -> F0
+    float strokeDashoffset -> x0
+    java.util.ArrayList mOriginProperties -> E0
+    com.facebook.react.bridge.ReadableArray fill -> A0
+    android.graphics.Path$FillType fillRule -> C0
+    java.util.ArrayList mAttributeList -> G0
+    com.facebook.react.bridge.ReadableArray stroke -> s0
+    com.horcrux.svg.RenderableView contextElement -> H0
+    float fillOpacity -> B0
+    void draw(android.graphics.Canvas,android.graphics.Paint,float) -> a
+    android.graphics.Region getRegion(android.graphics.Path,android.graphics.RectF) -> a
+    boolean hasOwnProperty(java.lang.String) -> a
+    int hitTest(float[]) -> a
+    void mergeProperties(com.horcrux.svg.RenderableView) -> a
+    double saturate(double) -> a
+    boolean setupFillPaint(android.graphics.Paint,float) -> a
+    void setupPaint(android.graphics.Paint,float,com.facebook.react.bridge.ReadableArray) -> a
+    void render(android.graphics.Canvas,android.graphics.Paint,float) -> b
+    boolean setupStrokePaint(android.graphics.Paint,float) -> b
+    void renderMarkers(android.graphics.Canvas,android.graphics.Paint,float) -> c
+    void initBounds() -> i
+    void resetProperties() -> j
+com.horcrux.svg.RenderableView$1 -> com.horcrux.svg.b0$a:
+    int[] $SwitchMap$com$horcrux$svg$RNSVGMarkerType -> a
+com.horcrux.svg.RenderableViewManager$1 -> com.horcrux.svg.RenderableViewManager$a:
+    com.horcrux.svg.RenderableViewManager this$0 -> b
+com.horcrux.svg.RenderableViewManager$2 -> com.horcrux.svg.RenderableViewManager$b:
+    int[] $SwitchMap$com$horcrux$svg$RenderableViewManager$SVGClass -> b
+    int[] $SwitchMap$com$facebook$react$bridge$ReadableType -> a
+com.horcrux.svg.RenderableViewManager$MatrixDecompositionContext -> com.horcrux.svg.RenderableViewManager$c:
+    double[] perspective -> f
+    double[] scale -> g
+    double[] skew -> h
+    double[] translation -> i
+    double[] rotationDegrees -> j
+com.horcrux.svg.RenderableViewManager$RenderableShadowNode -> com.horcrux.svg.RenderableViewManager$d:
+com.horcrux.svg.RenderableViewManager$SVGClass -> com.horcrux.svg.RenderableViewManager$e:
+    com.horcrux.svg.RenderableViewManager$SVGClass RNSVGForeignObject -> u
+    com.horcrux.svg.RenderableViewManager$SVGClass RNSVGPattern -> r
+    com.horcrux.svg.RenderableViewManager$SVGClass RNSVGRadialGradient -> q
+    com.horcrux.svg.RenderableViewManager$SVGClass[] $VALUES -> v
+    com.horcrux.svg.RenderableViewManager$SVGClass RNSVGMarker -> t
+    com.horcrux.svg.RenderableViewManager$SVGClass RNSVGMask -> s
+    com.horcrux.svg.RenderableViewManager$SVGClass RNSVGUse -> n
+    com.horcrux.svg.RenderableViewManager$SVGClass RNSVGDefs -> m
+    com.horcrux.svg.RenderableViewManager$SVGClass RNSVGLinearGradient -> p
+    com.horcrux.svg.RenderableViewManager$SVGClass RNSVGSymbol -> o
+    com.horcrux.svg.RenderableViewManager$SVGClass RNSVGLine -> j
+    com.horcrux.svg.RenderableViewManager$SVGClass RNSVGEllipse -> i
+    com.horcrux.svg.RenderableViewManager$SVGClass RNSVGClipPath -> l
+    com.horcrux.svg.RenderableViewManager$SVGClass RNSVGRect -> k
+    com.horcrux.svg.RenderableViewManager$SVGClass RNSVGTextPath -> f
+    com.horcrux.svg.RenderableViewManager$SVGClass RNSVGTSpan -> e
+    com.horcrux.svg.RenderableViewManager$SVGClass RNSVGCircle -> h
+    com.horcrux.svg.RenderableViewManager$SVGClass RNSVGImage -> g
+    com.horcrux.svg.RenderableViewManager$SVGClass RNSVGGroup -> b
+    com.horcrux.svg.RenderableViewManager$SVGClass RNSVGText -> d
+    com.horcrux.svg.RenderableViewManager$SVGClass RNSVGPath -> c
+com.horcrux.svg.SVGLength -> com.horcrux.svg.c0:
+    double value -> a
+    com.horcrux.svg.SVGLength$UnitType unit -> b
+    java.util.ArrayList arrayFrom(com.facebook.react.bridge.Dynamic) -> a
+    com.horcrux.svg.SVGLength from(com.facebook.react.bridge.Dynamic) -> b
+    java.lang.String toString(com.facebook.react.bridge.Dynamic) -> c
+com.horcrux.svg.SVGLength$1 -> com.horcrux.svg.c0$a:
+    int[] $SwitchMap$com$facebook$react$bridge$ReadableType -> a
+com.horcrux.svg.SVGLength$UnitType -> com.horcrux.svg.c0$b:
+    com.horcrux.svg.SVGLength$UnitType MM -> i
+    com.horcrux.svg.SVGLength$UnitType IN -> j
+    com.horcrux.svg.SVGLength$UnitType PT -> k
+    com.horcrux.svg.SVGLength$UnitType PC -> l
+    com.horcrux.svg.SVGLength$UnitType EMS -> e
+    com.horcrux.svg.SVGLength$UnitType[] $VALUES -> m
+    com.horcrux.svg.SVGLength$UnitType EXS -> f
+    com.horcrux.svg.SVGLength$UnitType PX -> g
+    com.horcrux.svg.SVGLength$UnitType CM -> h
+    com.horcrux.svg.SVGLength$UnitType UNKNOWN -> b
+    com.horcrux.svg.SVGLength$UnitType NUMBER -> c
+    com.horcrux.svg.SVGLength$UnitType PERCENTAGE -> d
+com.horcrux.svg.SegmentData -> com.horcrux.svg.d0:
+    com.horcrux.svg.Point position -> c
+    com.horcrux.svg.Point start_tangent -> a
+    com.horcrux.svg.Point end_tangent -> b
+com.horcrux.svg.SvgPackage -> com.horcrux.svg.e0:
+    java.util.List createNativeModules(com.facebook.react.bridge.ReactApplicationContext) -> a
+    java.util.List createViewManagers(com.facebook.react.bridge.ReactApplicationContext) -> b
+com.horcrux.svg.SvgView -> com.horcrux.svg.f0:
+    java.lang.Runnable toDataUrlTask -> u
+    android.graphics.Matrix mInvViewBoxMatrix -> L
+    boolean mInvertible -> M
+    boolean mRendered -> N
+    int mTintColor -> O
+    float mVbHeight -> G
+    java.lang.String mAlign -> J
+    int mMeetOrSlice -> K
+    float mVbWidth -> F
+    float mMinY -> E
+    java.util.Map mDefinedMarkers -> y
+    float mMinX -> D
+    boolean mResponsible -> v
+    java.util.Map mDefinedMasks -> z
+    float mScale -> C
+    com.horcrux.svg.SVGLength mbbHeight -> I
+    java.util.Map mDefinedClipPaths -> w
+    com.horcrux.svg.SVGLength mbbWidth -> H
+    java.util.Map mDefinedTemplates -> x
+    java.util.Map mDefinedBrushes -> A
+    android.graphics.Bitmap mBitmap -> t
+    android.graphics.Canvas mCanvas -> B
+    void defineBrush(com.horcrux.svg.Brush,java.lang.String) -> a
+    void defineClipPath(com.horcrux.svg.VirtualView,java.lang.String) -> a
+    void drawChildren(android.graphics.Canvas) -> a
+    com.horcrux.svg.Brush getDefinedBrush(java.lang.String) -> a
+    int reactTagForTouch(float,float) -> a
+    java.lang.String toDataURL(int,int) -> a
+    void defineMarker(com.horcrux.svg.VirtualView,java.lang.String) -> b
+    com.horcrux.svg.VirtualView getDefinedClipPath(java.lang.String) -> b
+    boolean interceptsTouchEvent(float,float) -> b
+    void defineMask(com.horcrux.svg.VirtualView,java.lang.String) -> c
+    com.horcrux.svg.VirtualView getDefinedMarker(java.lang.String) -> c
+    int hitTest(float,float) -> c
+    void defineTemplate(com.horcrux.svg.VirtualView,java.lang.String) -> d
+    com.horcrux.svg.VirtualView getDefinedMask(java.lang.String) -> d
+    void enableTouchEvents() -> e
+    com.horcrux.svg.VirtualView getDefinedTemplate(java.lang.String) -> e
+    boolean isResponsible() -> f
+    boolean notRendered() -> g
+    java.lang.String toDataURL() -> h
+    void clearChildCache() -> i
+    android.graphics.Bitmap drawOutput() -> j
+com.horcrux.svg.SvgViewModule$1 -> com.horcrux.svg.SvgViewModule$a:
+    com.facebook.react.bridge.Callback val$successCallback -> d
+    int val$attempt -> e
+    int val$tag -> b
+    com.facebook.react.bridge.ReadableMap val$options -> c
+com.horcrux.svg.SvgViewModule$1$1 -> com.horcrux.svg.SvgViewModule$a$a:
+    com.horcrux.svg.SvgViewModule$1 this$0 -> b
+com.horcrux.svg.SvgViewModule$1$1$1 -> com.horcrux.svg.SvgViewModule$a$a$a:
+    com.horcrux.svg.SvgViewModule$1$1 this$1 -> b
+com.horcrux.svg.SvgViewModule$1$2 -> com.horcrux.svg.SvgViewModule$a$b:
+    com.horcrux.svg.SvgViewModule$1 this$0 -> b
+com.horcrux.svg.SymbolView -> com.horcrux.svg.g0:
+    int mMeetOrSlice -> Q0
+    float mMinY -> M0
+    float mMinX -> L0
+    float mVbHeight -> O0
+    java.lang.String mAlign -> P0
+    float mVbWidth -> N0
+    void draw(android.graphics.Canvas,android.graphics.Paint,float) -> a
+    void drawSymbol(android.graphics.Canvas,android.graphics.Paint,float,float,float) -> a
+com.horcrux.svg.TSpanView -> com.horcrux.svg.h0:
+    java.lang.String mContent -> X0
+    java.util.ArrayList emoji -> Z0
+    android.graphics.Path mCachedPath -> W0
+    android.content.res.AssetManager assets -> b1
+    java.util.ArrayList emojiTransforms -> a1
+    com.horcrux.svg.TextPathView textPath -> Y0
+    void applySpacingAndFeatures(android.graphics.Paint,com.horcrux.svg.FontData) -> a
+    void draw(android.graphics.Canvas,android.graphics.Paint,float) -> a
+    double getAbsoluteStartOffset(com.horcrux.svg.SVGLength,double,double) -> a
+    android.graphics.Path getLinePath(java.lang.String,android.graphics.Paint,android.graphics.Canvas) -> a
+    android.text.StaticLayout getStaticLayout(android.text.TextPaint,android.text.Layout$Alignment,boolean,android.text.SpannableString,int) -> a
+    double getSubtreeTextChunksTotalAdvance(android.graphics.Paint) -> a
+    double getTextAnchorOffset(com.horcrux.svg.TextProperties$TextAnchor,double) -> a
+    int hitTest(float[]) -> a
+    java.lang.String visualToLogical(java.lang.String) -> a
+    void applyTextPropertiesToPaint(android.graphics.Paint,com.horcrux.svg.FontData) -> b
+    android.graphics.Path getPath(android.graphics.Canvas,android.graphics.Paint) -> c
+    void clearCache() -> e
+    void drawWrappedText(android.graphics.Canvas,android.graphics.Paint) -> e
+    void setupTextPath() -> s
+com.horcrux.svg.TSpanView$1 -> com.horcrux.svg.h0$a:
+    int[] $SwitchMap$com$horcrux$svg$TextProperties$TextLengthAdjust -> b
+    int[] $SwitchMap$com$horcrux$svg$TextProperties$AlignmentBaseline -> c
+    int[] $SwitchMap$com$horcrux$svg$TextProperties$TextAnchor -> a
+com.horcrux.svg.TextPathView -> com.horcrux.svg.i0:
+    java.lang.String mHref -> W0
+    com.horcrux.svg.TextProperties$TextPathMidLine mMidLine -> Y0
+    com.horcrux.svg.SVGLength mStartOffset -> Z0
+    com.horcrux.svg.TextProperties$TextPathSide mSide -> X0
+    void draw(android.graphics.Canvas,android.graphics.Paint,float) -> a
+    android.graphics.Path getPath(android.graphics.Canvas,android.graphics.Paint) -> c
+    android.graphics.Path getTextPath(android.graphics.Canvas,android.graphics.Paint) -> e
+    void popGlyphContext() -> m
+    void pushGlyphContext() -> n
+    com.horcrux.svg.TextProperties$TextPathMidLine getMidLine() -> s
+    com.horcrux.svg.TextProperties$TextPathSide getSide() -> t
+    com.horcrux.svg.SVGLength getStartOffset() -> u
+com.horcrux.svg.TextProperties$AlignmentBaseline -> com.horcrux.svg.j0:
+    com.horcrux.svg.TextProperties$AlignmentBaseline textBeforeEdge -> n
+    com.horcrux.svg.TextProperties$AlignmentBaseline top -> m
+    com.horcrux.svg.TextProperties$AlignmentBaseline beforeEdge -> p
+    java.util.Map alignmentToEnum -> s
+    com.horcrux.svg.TextProperties$AlignmentBaseline textAfterEdge -> o
+    com.horcrux.svg.TextProperties$AlignmentBaseline hanging -> r
+    com.horcrux.svg.TextProperties$AlignmentBaseline afterEdge -> q
+    com.horcrux.svg.TextProperties$AlignmentBaseline textBottom -> d
+    com.horcrux.svg.TextProperties$AlignmentBaseline baseline -> c
+    com.horcrux.svg.TextProperties$AlignmentBaseline ideographic -> f
+    com.horcrux.svg.TextProperties$AlignmentBaseline alphabetic -> e
+    com.horcrux.svg.TextProperties$AlignmentBaseline[] $VALUES -> t
+    com.horcrux.svg.TextProperties$AlignmentBaseline central -> h
+    com.horcrux.svg.TextProperties$AlignmentBaseline middle -> g
+    com.horcrux.svg.TextProperties$AlignmentBaseline textTop -> j
+    com.horcrux.svg.TextProperties$AlignmentBaseline mathematical -> i
+    java.lang.String alignment -> b
+    com.horcrux.svg.TextProperties$AlignmentBaseline center -> l
+    com.horcrux.svg.TextProperties$AlignmentBaseline bottom -> k
+    com.horcrux.svg.TextProperties$AlignmentBaseline getEnum(java.lang.String) -> a
+com.horcrux.svg.TextProperties$FontStyle -> com.horcrux.svg.k0:
+    com.horcrux.svg.TextProperties$FontStyle[] $VALUES -> e
+    com.horcrux.svg.TextProperties$FontStyle normal -> b
+    com.horcrux.svg.TextProperties$FontStyle oblique -> d
+    com.horcrux.svg.TextProperties$FontStyle italic -> c
+com.horcrux.svg.TextProperties$FontVariantLigatures -> com.horcrux.svg.l0:
+    com.horcrux.svg.TextProperties$FontVariantLigatures none -> c
+    com.horcrux.svg.TextProperties$FontVariantLigatures normal -> b
+    com.horcrux.svg.TextProperties$FontVariantLigatures[] $VALUES -> d
+com.horcrux.svg.TextProperties$FontWeight -> com.horcrux.svg.m0:
+    java.util.Map weightToEnum -> p
+    com.horcrux.svg.TextProperties$FontWeight Normal -> c
+    com.horcrux.svg.TextProperties$FontWeight Bold -> d
+    com.horcrux.svg.TextProperties$FontWeight w100 -> e
+    com.horcrux.svg.TextProperties$FontWeight w200 -> f
+    com.horcrux.svg.TextProperties$FontWeight w300 -> g
+    com.horcrux.svg.TextProperties$FontWeight[] $VALUES -> q
+    com.horcrux.svg.TextProperties$FontWeight w400 -> h
+    com.horcrux.svg.TextProperties$FontWeight w500 -> i
+    com.horcrux.svg.TextProperties$FontWeight w600 -> j
+    com.horcrux.svg.TextProperties$FontWeight w700 -> k
+    com.horcrux.svg.TextProperties$FontWeight w800 -> l
+    com.horcrux.svg.TextProperties$FontWeight w900 -> m
+    com.horcrux.svg.TextProperties$FontWeight Bolder -> n
+    com.horcrux.svg.TextProperties$FontWeight Lighter -> o
+    java.lang.String weight -> b
+    com.horcrux.svg.TextProperties$FontWeight get(java.lang.String) -> a
+    boolean hasEnum(java.lang.String) -> b
+com.horcrux.svg.TextProperties$TextAnchor -> com.horcrux.svg.n0:
+    com.horcrux.svg.TextProperties$TextAnchor[] $VALUES -> e
+    com.horcrux.svg.TextProperties$TextAnchor start -> b
+    com.horcrux.svg.TextProperties$TextAnchor end -> d
+    com.horcrux.svg.TextProperties$TextAnchor middle -> c
+com.horcrux.svg.TextProperties$TextDecoration -> com.horcrux.svg.o0:
+    com.horcrux.svg.TextProperties$TextDecoration Blink -> g
+    com.horcrux.svg.TextProperties$TextDecoration LineThrough -> f
+    com.horcrux.svg.TextProperties$TextDecoration None -> c
+    java.lang.String decoration -> b
+    com.horcrux.svg.TextProperties$TextDecoration Overline -> e
+    com.horcrux.svg.TextProperties$TextDecoration[] $VALUES -> i
+    com.horcrux.svg.TextProperties$TextDecoration Underline -> d
+    java.util.Map decorationToEnum -> h
+    com.horcrux.svg.TextProperties$TextDecoration getEnum(java.lang.String) -> a
+com.horcrux.svg.TextProperties$TextLengthAdjust -> com.horcrux.svg.p0:
+    com.horcrux.svg.TextProperties$TextLengthAdjust spacing -> b
+    com.horcrux.svg.TextProperties$TextLengthAdjust[] $VALUES -> d
+    com.horcrux.svg.TextProperties$TextLengthAdjust spacingAndGlyphs -> c
+com.horcrux.svg.TextProperties$TextPathMethod -> com.horcrux.svg.q0:
+    com.horcrux.svg.TextProperties$TextPathMethod[] $VALUES -> d
+    com.horcrux.svg.TextProperties$TextPathMethod align -> b
+    com.horcrux.svg.TextProperties$TextPathMethod stretch -> c
+com.horcrux.svg.TextProperties$TextPathMidLine -> com.horcrux.svg.r0:
+    com.horcrux.svg.TextProperties$TextPathMidLine[] $VALUES -> d
+    com.horcrux.svg.TextProperties$TextPathMidLine smooth -> c
+    com.horcrux.svg.TextProperties$TextPathMidLine sharp -> b
+com.horcrux.svg.TextProperties$TextPathSide -> com.horcrux.svg.s0:
+    com.horcrux.svg.TextProperties$TextPathSide right -> c
+    com.horcrux.svg.TextProperties$TextPathSide left -> b
+    com.horcrux.svg.TextProperties$TextPathSide[] $VALUES -> d
+com.horcrux.svg.TextProperties$TextPathSpacing -> com.horcrux.svg.t0:
+    com.horcrux.svg.TextProperties$TextPathSpacing[] $VALUES -> d
+    com.horcrux.svg.TextProperties$TextPathSpacing exact -> c
+    com.horcrux.svg.TextProperties$TextPathSpacing auto -> b
+com.horcrux.svg.TextView -> com.horcrux.svg.u0:
+    com.horcrux.svg.TextProperties$TextLengthAdjust mLengthAdjust -> O0
+    java.util.ArrayList mPositionY -> R0
+    java.util.ArrayList mPositionX -> Q0
+    java.util.ArrayList mDeltaX -> T0
+    java.util.ArrayList mRotate -> S0
+    java.util.ArrayList mDeltaY -> U0
+    com.horcrux.svg.SVGLength mTextLength -> M0
+    com.horcrux.svg.SVGLength mInlineSize -> L0
+    java.lang.String mBaselineShift -> N0
+    com.horcrux.svg.TextProperties$AlignmentBaseline mAlignmentBaseline -> P0
+    double cachedAdvance -> V0
+    void draw(android.graphics.Canvas,android.graphics.Paint,float) -> a
+    android.graphics.Path getPath(android.graphics.Canvas,android.graphics.Paint,android.graphics.Region$Op) -> a
+    double getSubtreeTextChunksTotalAdvance(android.graphics.Paint) -> a
+    android.graphics.Path getPath(android.graphics.Canvas,android.graphics.Paint) -> c
+    android.graphics.Path getGroupPath(android.graphics.Canvas,android.graphics.Paint) -> d
+    void clearCache() -> e
+    void pushGlyphContext() -> n
+    com.horcrux.svg.TextProperties$AlignmentBaseline getAlignmentBaseline() -> o
+    java.lang.String getBaselineShift() -> p
+    com.horcrux.svg.TextView getTextAnchorRoot() -> q
+    com.horcrux.svg.TextView getTextContainer() -> r
+com.horcrux.svg.UseView -> com.horcrux.svg.v0:
+    java.lang.String mHref -> J0
+    com.horcrux.svg.SVGLength mH -> N0
+    com.horcrux.svg.SVGLength mX -> K0
+    com.horcrux.svg.SVGLength mW -> M0
+    com.horcrux.svg.SVGLength mY -> L0
+    void draw(android.graphics.Canvas,android.graphics.Paint,float) -> a
+    int hitTest(float[]) -> a
+    android.graphics.Path getPath(android.graphics.Canvas,android.graphics.Paint) -> c
+com.horcrux.svg.ViewBox -> com.horcrux.svg.w0:
+    android.graphics.Matrix getTransform(android.graphics.RectF,android.graphics.RectF,java.lang.String,int) -> a
+com.horcrux.svg.VirtualView -> com.horcrux.svg.x0:
+    java.lang.String mMask -> G
+    java.lang.String mMarkerMid -> I
+    boolean mResponsible -> L
+    java.lang.String mName -> O
+    com.horcrux.svg.SvgView svgView -> P
+    com.facebook.react.bridge.ReactContext mContext -> t
+    double canvasDiagonal -> T
+    int mClipRule -> E
+    java.util.ArrayList elements -> o0
+    android.graphics.Path mCachedClipPath -> Q
+    android.graphics.Matrix mInvMatrix -> z
+    android.graphics.RectF mBox -> f0
+    android.graphics.Matrix mCTM -> v
+    android.graphics.RectF mFillBounds -> g0
+    float canvasWidth -> V
+    android.graphics.RectF mStrokeBounds -> h0
+    float mOpacity -> u
+    android.graphics.Matrix mTransform -> x
+    android.graphics.RectF mMarkerBounds -> i0
+    android.graphics.RectF mClipBounds -> j0
+    com.facebook.react.uimanager.PointerEvents mPointerEvents -> p0
+    boolean mTransformInvertible -> C
+    boolean mOnLayout -> M
+    android.graphics.Region mClipRegion -> n0
+    java.lang.String mClipPath -> F
+    float mScale -> K
+    android.graphics.Region mMarkerRegion -> l0
+    java.lang.String mMarkerStart -> H
+    android.graphics.Region mStrokeRegion -> m0
+    android.graphics.RectF mClientRect -> D
+    java.lang.String mMarkerEnd -> J
+    android.graphics.Region mRegion -> k0
+    java.lang.String mDisplay -> N
+    double fontSize -> S
+    com.horcrux.svg.GroupView mTextRoot -> R
+    float[] sRawMatrix -> q0
+    com.horcrux.svg.GlyphContext glyphContext -> W
+    android.graphics.Path mFillPath -> b0
+    android.graphics.Path mPath -> a0
+    android.graphics.Matrix mMatrix -> w
+    android.graphics.Path mMarkerPath -> d0
+    android.graphics.Path mStrokePath -> c0
+    android.graphics.Matrix mInvCTM -> y
+    float canvasHeight -> U
+    android.graphics.Path mClipRegionPath -> e0
+    android.graphics.Matrix mInvTransform -> A
+    boolean mInvertible -> B
+    void clip(android.graphics.Canvas,android.graphics.Paint) -> a
+    void draw(android.graphics.Canvas,android.graphics.Paint,float) -> a
+    int hitTest(float[]) -> a
+    double relativeOnHeight(com.horcrux.svg.SVGLength) -> a
+    void restoreCanvas(android.graphics.Canvas,int) -> a
+    int saveAndSetupCanvas(android.graphics.Canvas,android.graphics.Matrix) -> a
+    android.graphics.Path getClipPath(android.graphics.Canvas,android.graphics.Paint) -> b
+    double relativeOnOther(com.horcrux.svg.SVGLength) -> b
+    void render(android.graphics.Canvas,android.graphics.Paint,float) -> b
+    android.graphics.Path getPath(android.graphics.Canvas,android.graphics.Paint) -> c
+    double relativeOnWidth(com.horcrux.svg.SVGLength) -> c
+    double fromRelativeFast(com.horcrux.svg.SVGLength) -> d
+    void clearCache() -> e
+    void clearChildCache() -> f
+    boolean isResponsible() -> g
+    void saveDefinition() -> h
+    void clearParentCache() -> i
+com.horcrux.svg.VirtualView$1 -> com.horcrux.svg.x0$a:
+    int[] $SwitchMap$com$horcrux$svg$SVGLength$UnitType -> a
 com.lugg.ReactNativeConfig.ReactNativeConfigPackage -> com.lugg.ReactNativeConfig.a:
     java.util.List createNativeModules(com.facebook.react.bridge.ReactApplicationContext) -> a
     java.util.List createViewManagers(com.facebook.react.bridge.ReactApplicationContext) -> b

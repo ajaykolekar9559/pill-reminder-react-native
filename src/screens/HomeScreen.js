@@ -15,6 +15,7 @@ import { Configuration } from "../Configuration";
 import LogoutButton from "../components/LogoutButton";
 import * as userActions from "../store/actions/user";
 import AsyncStorage from "@react-native-community/async-storage";
+import moment from 'moment';
 
 class HomeScreen extends React.Component {
 	static navigationOptions = ({ navigation }) => {
@@ -31,24 +32,38 @@ class HomeScreen extends React.Component {
 			activeSlide: 0,
 			patientCount: 0,
 			doctorCount: 0,
+			patientHistory: [],
 		};
 	}
 
 	componentDidMount = async () => {
 		try {
-
-      		const userName = await AsyncStorage.getItem("role");
+			const userName = await AsyncStorage.getItem("role");
 			this.setState({
 				user: userName,
 			});
+			console.log('Home screen User',this.state.user);
 			let Dresponse;
-			let Presponse
+			let Presponse;
 			if (this.state.user === "Admin" || this.state.user === "Doctor") {
 				Presponse = await this.props.getPatientCount();
 			}
-			
+
 			if (this.state.user === "Admin") {
 				Dresponse = await this.props.getDoctorCount();
+			}
+			if (this.state.user === "Patient") {
+				try {
+					let response = await this.props.getNotificationHistory();
+					this.setState({
+						patientHistory: response.data.reverse(),
+					});
+				} catch (err) {
+					setTimeout(() => {
+						Alert.alert("", err.message, [{ text: "Okay" }]);
+					}, 500);
+				}
+				console.log(this.state.patientHistory)
 			}
 			this.setState({
 				patientCount: Presponse ? Presponse.count : 0,
@@ -76,14 +91,15 @@ class HomeScreen extends React.Component {
 						flexDirection: this.state.user === "Admin" ? "row" : "column",
 						marginTop: 15,
 					}}
-				>{this.state.user === "Doctor" || this.state.user === "Admin" ? (
-					<TouchableOpacity
-						style={this.state.user === "Admin" ? styles.cardL : styles.card}
-					>
-						<Text style={styles.cardText}>Patient Count</Text>
-						<Text style={styles.cardText}>{this.state.patientCount}</Text>
-					</TouchableOpacity>
-				) : null}
+				>
+					{this.state.user === "Doctor" || this.state.user === "Admin" ? (
+						<TouchableOpacity
+							style={this.state.user === "Admin" ? styles.cardL : styles.card}
+						>
+							<Text style={styles.cardText}>Patient Count</Text>
+							<Text style={styles.cardText}>{this.state.patientCount}</Text>
+						</TouchableOpacity>
+					) : null}
 					{this.state.user === "Doctor" ? (
 						<TouchableOpacity style={styles.card} onPress={this.route}>
 							<Text style={styles.cardText}>See All Patients</Text>
@@ -108,10 +124,67 @@ class HomeScreen extends React.Component {
 					</Button>
 				) : null}
 				{this.state.user === "Patient" ? (
-						<View>
-							<Text style={{color: 'black', fontSize: 20}}>Coming Soon........</Text>
-						</View>
-					) : null}
+					<View style={{ width: "85%", marginLeft: 20, marginRight: 20, paddingBottom: 50 }}>
+					<View
+						style={{
+							flexDirection: "row",
+							justifyContent: "space-between",
+							backgroundColor: "red",
+							width: "100%",
+							padding: 10,
+							borderTopLeftRadius: 10,
+							borderTopRightRadius: 10,
+							paddingRight: 20,
+							paddingLeft: 20,
+							marginTop: 20,
+						}}
+					>
+						<Text style={{ fontSize: 18, color: "#FFF", fontSize: 15 }}>
+							Notification History
+						</Text>
+					</View>
+					<View style={{ flexDirection: "column" }}>
+						{this.state.patientHistory && this.state.patientHistory.length > 0 ? (
+							this.state.patientHistory.map((item, index) => {
+								return (
+									<View
+										key={item._id}
+										style={{
+											flexDirection: "row",
+											justifyContent: "space-between",
+											paddingTop: 10,
+											paddingBottom: 10,
+											borderColor: "#D5D5D5",
+											borderBottomWidth: 1,
+											borderLeftWidth: 1,
+											borderRightWidth: 1,
+										}}
+									>
+										<Text
+											style={{
+												fontSize: 18,
+												color: "gray",
+												color: "#343434",
+												fontSize: 15,
+												paddingRight: 10,
+												paddingLeft: 10,
+												flex: 0.7,
+											}}
+										>
+											{moment(item.created).format('MMMM Do YYYY, h:mm:ss a')}
+										</Text>
+									</View>
+								);
+							})
+						) : (
+							<View style={{ width: "100%"}}>
+							<Text style={{textAlign: 'center'}}>No Notification History Found</Text>
+
+							</View>
+						)}
+					</View>
+				</View>
+				) : null}
 			</ScrollView>
 		);
 	}
@@ -191,6 +264,7 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => ({
 	getPatientCount: bindActionCreators(userActions.getPatientCount, dispatch),
 	getDoctorCount: bindActionCreators(userActions.getDoctorCount, dispatch),
+	getNotificationHistory: bindActionCreators(userActions.getNotificationHistory, dispatch),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(HomeScreen);

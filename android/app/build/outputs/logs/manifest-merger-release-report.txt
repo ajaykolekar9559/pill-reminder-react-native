@@ -14,6 +14,7 @@ MERGED from [:react-native-gesture-handler] /Users/ajaykolekar/Desktop/react-nat
 MERGED from [:react-native-reanimated] /Users/ajaykolekar/Desktop/react-native-starter-kit/node_modules/react-native-reanimated/android/build/intermediates/library_manifest/release/AndroidManifest.xml:2:1-11:12
 MERGED from [:react-native-safe-area-context] /Users/ajaykolekar/Desktop/react-native-starter-kit/node_modules/react-native-safe-area-context/android/build/intermediates/library_manifest/release/AndroidManifest.xml:2:1-9:12
 MERGED from [:react-native-screens] /Users/ajaykolekar/Desktop/react-native-starter-kit/node_modules/react-native-screens/android/build/intermediates/library_manifest/release/AndroidManifest.xml:2:1-11:12
+MERGED from [:react-native-svg] /Users/ajaykolekar/Desktop/react-native-starter-kit/node_modules/react-native-svg/android/build/intermediates/library_manifest/release/AndroidManifest.xml:2:1-9:12
 MERGED from [com.facebook.react:react-native:0.63.4] /Users/ajaykolekar/.gradle/caches/transforms-2/files-2.1/7bcc6b08e2b3b1bf305e161c4ea3681a/jetified-react-native-0.63.4/AndroidManifest.xml:2:1-13:12
 MERGED from [androidx.multidex:multidex:2.0.0] /Users/ajaykolekar/.gradle/caches/transforms-2/files-2.1/eda738933f68d7e977bd1b4518e42799/multidex-2.0.0/AndroidManifest.xml:17:1-22:12
 MERGED from [com.facebook.android:facebook-android-sdk:5.15.3] /Users/ajaykolekar/.gradle/caches/transforms-2/files-2.1/ff676da7300bfa4d855396050baa1463/facebook-android-sdk-5.15.3/AndroidManifest.xml:21:1-31:12
@@ -202,6 +203,8 @@ MERGED from [:react-native-safe-area-context] /Users/ajaykolekar/Desktop/react-n
 MERGED from [:react-native-safe-area-context] /Users/ajaykolekar/Desktop/react-native-starter-kit/node_modules/react-native-safe-area-context/android/build/intermediates/library_manifest/release/AndroidManifest.xml:5:5-7:41
 MERGED from [:react-native-screens] /Users/ajaykolekar/Desktop/react-native-starter-kit/node_modules/react-native-screens/android/build/intermediates/library_manifest/release/AndroidManifest.xml:7:5-9:41
 MERGED from [:react-native-screens] /Users/ajaykolekar/Desktop/react-native-starter-kit/node_modules/react-native-screens/android/build/intermediates/library_manifest/release/AndroidManifest.xml:7:5-9:41
+MERGED from [:react-native-svg] /Users/ajaykolekar/Desktop/react-native-starter-kit/node_modules/react-native-svg/android/build/intermediates/library_manifest/release/AndroidManifest.xml:5:5-7:41
+MERGED from [:react-native-svg] /Users/ajaykolekar/Desktop/react-native-starter-kit/node_modules/react-native-svg/android/build/intermediates/library_manifest/release/AndroidManifest.xml:5:5-7:41
 MERGED from [com.facebook.react:react-native:0.63.4] /Users/ajaykolekar/.gradle/caches/transforms-2/files-2.1/7bcc6b08e2b3b1bf305e161c4ea3681a/jetified-react-native-0.63.4/AndroidManifest.xml:7:5-9:41
 MERGED from [com.facebook.react:react-native:0.63.4] /Users/ajaykolekar/.gradle/caches/transforms-2/files-2.1/7bcc6b08e2b3b1bf305e161c4ea3681a/jetified-react-native-0.63.4/AndroidManifest.xml:7:5-9:41
 MERGED from [androidx.multidex:multidex:2.0.0] /Users/ajaykolekar/.gradle/caches/transforms-2/files-2.1/eda738933f68d7e977bd1b4518e42799/multidex-2.0.0/AndroidManifest.xml:20:5-43

@@ -19,6 +19,7 @@ import {
 	widthPercentageToDP as wp,
 	heightPercentageToDP as hp,
 } from "react-native-responsive-screen";
+import AsyncStorage from "@react-native-community/async-storage";
 
 const patient = require("../../assets/patient.jpeg");
 
@@ -73,6 +74,7 @@ class SignupScreen extends React.Component {
 				this.setState({
 					spinner: false,
 				});
+				await AsyncStorage.setItem("role", 'Patient');
 				this.props.navigation.navigate("Home");
 			} catch (err) {
 				this.setState({
