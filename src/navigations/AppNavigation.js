@@ -61,44 +61,6 @@ const HomeStack = createStackNavigator(
   }
 );
 
-// const TabNavigator = createBottomTabNavigator(
-//   {
-//     Home: { screen: HomeStack }
-//   },
-//   {
-//     navigationOptions: ({ navigation }) => ({
-//       tabBarIcon: ({ focused, tintColor }) => {
-//         const { routeName } = navigation.state;
-//         let iconName;
-//         if (routeName === "Home") {
-//           iconName = AppIcon.images.home;
-//         }
-
-//         // You can return any component that you like here! We usually use an
-//         // icon component from react-native-vector-icons
-//         return (
-//           <Image
-//             style={{
-//               tintColor: focused ? AppStyles.color.tint : AppStyles.color.grey
-//             }}
-//             source={iconName}
-//           />
-//         );
-//       }
-//     }),
-//     initialLayout: {
-//       height: 300
-//     },
-//     tabBarOptions: {
-//       activeTintColor: AppStyles.color.tint,
-//       inactiveTintColor: "gray",
-//       style: {
-//         height: Configuration.home.tab_bar_height
-//       }
-//     }
-//   }
-// );
-
 // drawer stack
 const DrawerStack = createDrawerNavigator(
   {

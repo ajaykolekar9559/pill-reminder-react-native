@@ -168,16 +168,20 @@
         "source": "/Users/ajaykolekar/.gradle/caches/transforms-2/files-2.1/91cce03d19de29395edb51be931978de/material-1.1.0/res/drawable/mtrl_ic_error.xml"
     },
     {
+        "merged": "/Users/ajaykolekar/Desktop/react-native-starter-kit/android/app/build/intermediates/res/merged/release/raw_node_modules_mdndata_css_atrules.json.flat",
+        "source": "/Users/ajaykolekar/Desktop/react-native-starter-kit/android/app/build/generated/res/react/release/raw/node_modules_mdndata_css_atrules.json"
+    },
+    {
         "merged": "/Users/ajaykolekar/Desktop/react-native-starter-kit/android/app/build/intermediates/res/merged/release/drawable_abc_tab_indicator_material.xml.flat",
         "source": "/Users/ajaykolekar/.gradle/caches/transforms-2/files-2.1/008f243bf6dd08f82e37115d7cd7d56c/appcompat-1.1.0/res/drawable/abc_tab_indicator_material.xml"
     },
     {
-        "merged": "/Users/ajaykolekar/Desktop/react-native-starter-kit/android/app/build/intermediates/res/merged/release/anim_mtrl_card_lowers_interpolator.xml.flat",
-        "source": "/Users/ajaykolekar/.gradle/caches/transforms-2/files-2.1/91cce03d19de29395edb51be931978de/material-1.1.0/res/anim/mtrl_card_lowers_interpolator.xml"
-    },
-    {
         "merged": "/Users/ajaykolekar/Desktop/react-native-starter-kit/android/app/build/intermediates/res/merged/release/drawable-xxhdpi-v4_abc_popup_background_mtrl_mult.9.png.flat",
         "source": "/Users/ajaykolekar/.gradle/caches/transforms-2/files-2.1/008f243bf6dd08f82e37115d7cd7d56c/appcompat-1.1.0/res/drawable-xxhdpi-v4/abc_popup_background_mtrl_mult.9.png"
+    },
+    {
+        "merged": "/Users/ajaykolekar/Desktop/react-native-starter-kit/android/app/build/intermediates/res/merged/release/anim_mtrl_card_lowers_interpolator.xml.flat",
+        "source": "/Users/ajaykolekar/.gradle/caches/transforms-2/files-2.1/91cce03d19de29395edb51be931978de/material-1.1.0/res/anim/mtrl_card_lowers_interpolator.xml"
     },
     {
         "merged": "/Users/ajaykolekar/Desktop/react-native-starter-kit/android/app/build/intermediates/res/merged/release/drawable-hdpi-v4_com_facebook_tooltip_black_background.9.png.flat",
@@ -482,6 +486,10 @@
     {
         "merged": "/Users/ajaykolekar/Desktop/react-native-starter-kit/android/app/build/intermediates/res/merged/release/drawable-mdpi-v4_com_facebook_tooltip_black_background.9.png.flat",
         "source": "/Users/ajaykolekar/.gradle/caches/transforms-2/files-2.1/1d714cfece2738fa71269ecc652be151/jetified-facebook-login-5.15.3/res/drawable-mdpi-v4/com_facebook_tooltip_black_background.9.png"
+    },
+    {
+        "merged": "/Users/ajaykolekar/Desktop/react-native-starter-kit/android/app/build/intermediates/res/merged/release/raw_node_modules_csstree_data_patch.json.flat",
+        "source": "/Users/ajaykolekar/Desktop/react-native-starter-kit/android/app/build/generated/res/react/release/raw/node_modules_csstree_data_patch.json"
     },
     {
         "merged": "/Users/ajaykolekar/Desktop/react-native-starter-kit/android/app/build/intermediates/res/merged/release/color_mtrl_tabs_legacy_text_color_selector.xml.flat",
@@ -988,6 +996,10 @@
         "source": "/Users/ajaykolekar/.gradle/caches/transforms-2/files-2.1/91cce03d19de29395edb51be931978de/material-1.1.0/res/color/mtrl_card_view_ripple.xml"
     },
     {
+        "merged": "/Users/ajaykolekar/Desktop/react-native-starter-kit/android/app/build/intermediates/res/merged/release/raw_node_modules_domserializer_foreignnames.json.flat",
+        "source": "/Users/ajaykolekar/Desktop/react-native-starter-kit/android/app/build/generated/res/react/release/raw/node_modules_domserializer_foreignnames.json"
+    },
+    {
         "merged": "/Users/ajaykolekar/Desktop/react-native-starter-kit/android/app/build/intermediates/res/merged/release/layout_abc_screen_toolbar.xml.flat",
         "source": "/Users/ajaykolekar/.gradle/caches/transforms-2/files-2.1/008f243bf6dd08f82e37115d7cd7d56c/appcompat-1.1.0/res/layout/abc_screen_toolbar.xml"
     },
@@ -1086,6 +1098,10 @@
     {
         "merged": "/Users/ajaykolekar/Desktop/react-native-starter-kit/android/app/build/intermediates/res/merged/release/layout_notification_template_big_media_custom.xml.flat",
         "source": "/Users/ajaykolekar/.gradle/caches/transforms-2/files-2.1/4c6ecd20406acc768301bf903f1ea9d4/media-1.0.0/res/layout/notification_template_big_media_custom.xml"
+    },
+    {
+        "merged": "/Users/ajaykolekar/Desktop/react-native-starter-kit/android/app/build/intermediates/res/merged/release/raw_node_modules_entities_lib_maps_decode.json.flat",
+        "source": "/Users/ajaykolekar/Desktop/react-native-starter-kit/android/app/build/generated/res/react/release/raw/node_modules_entities_lib_maps_decode.json"
     },
     {
         "merged": "/Users/ajaykolekar/Desktop/react-native-starter-kit/android/app/build/intermediates/res/merged/release/color-v23_abc_btn_colored_text_material.xml.flat",
@@ -1496,6 +1512,10 @@
         "source": "/Users/ajaykolekar/Desktop/react-native-starter-kit/android/app/build/generated/res/react/release/drawable-mdpi/node_modules_reactnavigationstack_lib_module_vendor_views_assets_backiconmask.png"
     },
     {
+        "merged": "/Users/ajaykolekar/Desktop/react-native-starter-kit/android/app/build/intermediates/res/merged/release/raw_node_modules_entities_lib_maps_entities.json.flat",
+        "source": "/Users/ajaykolekar/Desktop/react-native-starter-kit/android/app/build/generated/res/react/release/raw/node_modules_entities_lib_maps_entities.json"
+    },
+    {
         "merged": "/Users/ajaykolekar/Desktop/react-native-starter-kit/android/app/build/intermediates/res/merged/release/drawable-hdpi-v4_com_facebook_tooltip_black_xout.png.flat",
         "source": "/Users/ajaykolekar/.gradle/caches/transforms-2/files-2.1/1d714cfece2738fa71269ecc652be151/jetified-facebook-login-5.15.3/res/drawable-hdpi-v4/com_facebook_tooltip_black_xout.png"
     },
@@ -1622,6 +1642,10 @@
     {
         "merged": "/Users/ajaykolekar/Desktop/react-native-starter-kit/android/app/build/intermediates/res/merged/release/drawable-xxhdpi-v4_abc_text_select_handle_middle_mtrl_dark.png.flat",
         "source": "/Users/ajaykolekar/.gradle/caches/transforms-2/files-2.1/008f243bf6dd08f82e37115d7cd7d56c/appcompat-1.1.0/res/drawable-xxhdpi-v4/abc_text_select_handle_middle_mtrl_dark.png"
+    },
+    {
+        "merged": "/Users/ajaykolekar/Desktop/react-native-starter-kit/android/app/build/intermediates/res/merged/release/raw_node_modules_mdndata_css_properties.json.flat",
+        "source": "/Users/ajaykolekar/Desktop/react-native-starter-kit/android/app/build/generated/res/react/release/raw/node_modules_mdndata_css_properties.json"
     },
     {
         "merged": "/Users/ajaykolekar/Desktop/react-native-starter-kit/android/app/build/intermediates/res/merged/release/color_design_icon_tint.xml.flat",
@@ -2076,16 +2100,16 @@
         "source": "/Users/ajaykolekar/.gradle/caches/transforms-2/files-2.1/008f243bf6dd08f82e37115d7cd7d56c/appcompat-1.1.0/res/anim/btn_radio_to_off_mtrl_ring_outer_path_animation.xml"
     },
     {
-        "merged": "/Users/ajaykolekar/Desktop/react-native-starter-kit/android/app/build/intermediates/res/merged/release/drawable-mdpi-v4_com_facebook_tooltip_blue_topnub.png.flat",
-        "source": "/Users/ajaykolekar/.gradle/caches/transforms-2/files-2.1/1d714cfece2738fa71269ecc652be151/jetified-facebook-login-5.15.3/res/drawable-mdpi-v4/com_facebook_tooltip_blue_topnub.png"
+        "merged": "/Users/ajaykolekar/Desktop/react-native-starter-kit/android/app/build/intermediates/res/merged/release/drawable_ic_keyboard_arrow_left_black_24dp.xml.flat",
+        "source": "/Users/ajaykolekar/.gradle/caches/transforms-2/files-2.1/91cce03d19de29395edb51be931978de/material-1.1.0/res/drawable/ic_keyboard_arrow_left_black_24dp.xml"
     },
     {
         "merged": "/Users/ajaykolekar/Desktop/react-native-starter-kit/android/app/build/intermediates/res/merged/release/layout_design_layout_snackbar_include.xml.flat",
         "source": "/Users/ajaykolekar/.gradle/caches/transforms-2/files-2.1/91cce03d19de29395edb51be931978de/material-1.1.0/res/layout/design_layout_snackbar_include.xml"
     },
     {
-        "merged": "/Users/ajaykolekar/Desktop/react-native-starter-kit/android/app/build/intermediates/res/merged/release/drawable_ic_keyboard_arrow_left_black_24dp.xml.flat",
-        "source": "/Users/ajaykolekar/.gradle/caches/transforms-2/files-2.1/91cce03d19de29395edb51be931978de/material-1.1.0/res/drawable/ic_keyboard_arrow_left_black_24dp.xml"
+        "merged": "/Users/ajaykolekar/Desktop/react-native-starter-kit/android/app/build/intermediates/res/merged/release/drawable-mdpi-v4_com_facebook_tooltip_blue_topnub.png.flat",
+        "source": "/Users/ajaykolekar/.gradle/caches/transforms-2/files-2.1/1d714cfece2738fa71269ecc652be151/jetified-facebook-login-5.15.3/res/drawable-mdpi-v4/com_facebook_tooltip_blue_topnub.png"
     },
     {
         "merged": "/Users/ajaykolekar/Desktop/react-native-starter-kit/android/app/build/intermediates/res/merged/release/layout_mtrl_alert_dialog_title.xml.flat",
@@ -2266,6 +2290,10 @@
     {
         "merged": "/Users/ajaykolekar/Desktop/react-native-starter-kit/android/app/build/intermediates/res/merged/release/xml_standalone_badge_gravity_top_start.xml.flat",
         "source": "/Users/ajaykolekar/.gradle/caches/transforms-2/files-2.1/91cce03d19de29395edb51be931978de/material-1.1.0/res/xml/standalone_badge_gravity_top_start.xml"
+    },
+    {
+        "merged": "/Users/ajaykolekar/Desktop/react-native-starter-kit/android/app/build/intermediates/res/merged/release/raw_node_modules_mdndata_css_syntaxes.json.flat",
+        "source": "/Users/ajaykolekar/Desktop/react-native-starter-kit/android/app/build/generated/res/react/release/raw/node_modules_mdndata_css_syntaxes.json"
     },
     {
         "merged": "/Users/ajaykolekar/Desktop/react-native-starter-kit/android/app/build/intermediates/res/merged/release/drawable-hdpi-v4_messenger_bubble_large_white.png.flat",
@@ -2464,6 +2492,10 @@
         "source": "/Users/ajaykolekar/.gradle/caches/transforms-2/files-2.1/008f243bf6dd08f82e37115d7cd7d56c/appcompat-1.1.0/res/anim/abc_tooltip_enter.xml"
     },
     {
+        "merged": "/Users/ajaykolekar/Desktop/react-native-starter-kit/android/app/build/intermediates/res/merged/release/raw_node_modules_cssselect_lib_procedure.json.flat",
+        "source": "/Users/ajaykolekar/Desktop/react-native-starter-kit/android/app/build/generated/res/react/release/raw/node_modules_cssselect_lib_procedure.json"
+    },
+    {
         "merged": "/Users/ajaykolekar/Desktop/react-native-starter-kit/android/app/build/intermediates/res/merged/release/layout_notification_action_tombstone.xml.flat",
         "source": "/Users/ajaykolekar/.gradle/caches/transforms-2/files-2.1/5d77264eb561b407f24a32ff22bc6987/core-1.3.2/res/layout/notification_action_tombstone.xml"
     },
@@ -2644,10 +2676,6 @@
         "source": "/Users/ajaykolekar/.gradle/caches/transforms-2/files-2.1/c2bdcf5fa3d57e4b0a16a58a446b023f/jetified-facebook-common-5.15.3/res/drawable-xhdpi-v4/com_facebook_close.png"
     },
     {
-        "merged": "/Users/ajaykolekar/Desktop/react-native-starter-kit/android/app/build/intermediates/res/merged/release/raw_node_modules_reactnativevectoricons_glyphmaps_fontawesome.json.flat",
-        "source": "/Users/ajaykolekar/Desktop/react-native-starter-kit/android/app/build/generated/res/react/release/raw/node_modules_reactnativevectoricons_glyphmaps_fontawesome.json"
-    },
-    {
         "merged": "/Users/ajaykolekar/Desktop/react-native-starter-kit/android/app/build/intermediates/res/merged/release/layout_test_design_checkbox.xml.flat",
         "source": "/Users/ajaykolekar/.gradle/caches/transforms-2/files-2.1/91cce03d19de29395edb51be931978de/material-1.1.0/res/layout/test_design_checkbox.xml"
     },
@@ -2796,6 +2824,10 @@
         "source": "/Users/ajaykolekar/.gradle/caches/transforms-2/files-2.1/1d714cfece2738fa71269ecc652be151/jetified-facebook-login-5.15.3/res/drawable-mdpi-v4/com_facebook_tooltip_blue_xout.png"
     },
     {
+        "merged": "/Users/ajaykolekar/Desktop/react-native-starter-kit/android/app/build/intermediates/res/merged/release/raw_node_modules_csstree_package.json.flat",
+        "source": "/Users/ajaykolekar/Desktop/react-native-starter-kit/android/app/build/generated/res/react/release/raw/node_modules_csstree_package.json"
+    },
+    {
         "merged": "/Users/ajaykolekar/Desktop/react-native-starter-kit/android/app/build/intermediates/res/merged/release/drawable-xhdpi-v4_abc_cab_background_top_mtrl_alpha.9.png.flat",
         "source": "/Users/ajaykolekar/.gradle/caches/transforms-2/files-2.1/008f243bf6dd08f82e37115d7cd7d56c/appcompat-1.1.0/res/drawable-xhdpi-v4/abc_cab_background_top_mtrl_alpha.9.png"
     },
@@ -2856,6 +2888,10 @@
         "source": "/Users/ajaykolekar/.gradle/caches/transforms-2/files-2.1/91cce03d19de29395edb51be931978de/material-1.1.0/res/layout/test_reflow_chipgroup.xml"
     },
     {
+        "merged": "/Users/ajaykolekar/Desktop/react-native-starter-kit/android/app/build/intermediates/res/merged/release/raw_node_modules_entities_lib_maps_xml.json.flat",
+        "source": "/Users/ajaykolekar/Desktop/react-native-starter-kit/android/app/build/generated/res/react/release/raw/node_modules_entities_lib_maps_xml.json"
+    },
+    {
         "merged": "/Users/ajaykolekar/Desktop/react-native-starter-kit/android/app/build/intermediates/res/merged/release/layout_abc_expanded_menu_layout.xml.flat",
         "source": "/Users/ajaykolekar/.gradle/caches/transforms-2/files-2.1/008f243bf6dd08f82e37115d7cd7d56c/appcompat-1.1.0/res/layout/abc_expanded_menu_layout.xml"
     },
@@ -2910,6 +2946,10 @@
     {
         "merged": "/Users/ajaykolekar/Desktop/react-native-starter-kit/android/app/build/intermediates/res/merged/release/layout_abc_popup_menu_item_layout.xml.flat",
         "source": "/Users/ajaykolekar/.gradle/caches/transforms-2/files-2.1/008f243bf6dd08f82e37115d7cd7d56c/appcompat-1.1.0/res/layout/abc_popup_menu_item_layout.xml"
+    },
+    {
+        "merged": "/Users/ajaykolekar/Desktop/react-native-starter-kit/android/app/build/intermediates/res/merged/release/raw_node_modules_entities_lib_maps_legacy.json.flat",
+        "source": "/Users/ajaykolekar/Desktop/react-native-starter-kit/android/app/build/generated/res/react/release/raw/node_modules_entities_lib_maps_legacy.json"
     },
     {
         "merged": "/Users/ajaykolekar/Desktop/react-native-starter-kit/android/app/build/intermediates/res/merged/release/drawable-mdpi-v4_abc_list_pressed_holo_light.9.png.flat",
@@ -2970,6 +3010,10 @@
     {
         "merged": "/Users/ajaykolekar/Desktop/react-native-starter-kit/android/app/build/intermediates/res/merged/release/color_abc_hint_foreground_material_dark.xml.flat",
         "source": "/Users/ajaykolekar/.gradle/caches/transforms-2/files-2.1/008f243bf6dd08f82e37115d7cd7d56c/appcompat-1.1.0/res/color/abc_hint_foreground_material_dark.xml"
+    },
+    {
+        "merged": "/Users/ajaykolekar/Desktop/react-native-starter-kit/android/app/build/intermediates/res/merged/release/raw_node_modules_csscolorkeywords_colors.json.flat",
+        "source": "/Users/ajaykolekar/Desktop/react-native-starter-kit/android/app/build/generated/res/react/release/raw/node_modules_csscolorkeywords_colors.json"
     },
     {
         "merged": "/Users/ajaykolekar/Desktop/react-native-starter-kit/android/app/build/intermediates/res/merged/release/layout_mtrl_calendar_month.xml.flat",

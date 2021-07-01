@@ -7216,7 +7216,18 @@ public final class R {
   }
   public static final class raw {
     public static final int app=0x7f0e0000;
-    public static final int node_modules_reactnativevectoricons_glyphmaps_fontawesome=0x7f0e0001;
+    public static final int node_modules_csscolorkeywords_colors=0x7f0e0001;
+    public static final int node_modules_cssselect_lib_procedure=0x7f0e0002;
+    public static final int node_modules_csstree_data_patch=0x7f0e0003;
+    public static final int node_modules_csstree_package=0x7f0e0004;
+    public static final int node_modules_domserializer_foreignnames=0x7f0e0005;
+    public static final int node_modules_entities_lib_maps_decode=0x7f0e0006;
+    public static final int node_modules_entities_lib_maps_entities=0x7f0e0007;
+    public static final int node_modules_entities_lib_maps_legacy=0x7f0e0008;
+    public static final int node_modules_entities_lib_maps_xml=0x7f0e0009;
+    public static final int node_modules_mdndata_css_atrules=0x7f0e000a;
+    public static final int node_modules_mdndata_css_properties=0x7f0e000b;
+    public static final int node_modules_mdndata_css_syntaxes=0x7f0e000c;
   }
   public static final class string {
     public static final int HOST=0x7f0f0000;

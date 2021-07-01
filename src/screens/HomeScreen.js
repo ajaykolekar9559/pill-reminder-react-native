@@ -15,6 +15,7 @@ import { Configuration } from "../Configuration";
 import LogoutButton from "../components/LogoutButton";
 import * as userActions from "../store/actions/user";
 import AsyncStorage from "@react-native-community/async-storage";
+import moment from 'moment';
 
 class HomeScreen extends React.Component {
 	static navigationOptions = ({ navigation }) => {
@@ -41,6 +42,7 @@ class HomeScreen extends React.Component {
 			this.setState({
 				user: userName,
 			});
+			console.log('Home screen User',this.state.user);
 			let Dresponse;
 			let Presponse;
 			if (this.state.user === "Admin" || this.state.user === "Doctor") {
@@ -54,13 +56,14 @@ class HomeScreen extends React.Component {
 				try {
 					let response = await this.props.getNotificationHistory();
 					this.setState({
-						patientHistory: response,
+						patientHistory: response.data.reverse(),
 					});
 				} catch (err) {
 					setTimeout(() => {
 						Alert.alert("", err.message, [{ text: "Okay" }]);
 					}, 500);
 				}
+				console.log(this.state.patientHistory)
 			}
 			this.setState({
 				patientCount: Presponse ? Presponse.count : 0,
@@ -121,7 +124,7 @@ class HomeScreen extends React.Component {
 					</Button>
 				) : null}
 				{this.state.user === "Patient" ? (
-					<View style={{ width: "85%", marginLeft: 20, marginRight: 20 }}>
+					<View style={{ width: "85%", marginLeft: 20, marginRight: 20, paddingBottom: 50 }}>
 					<View
 						style={{
 							flexDirection: "row",
@@ -141,15 +144,16 @@ class HomeScreen extends React.Component {
 						</Text>
 					</View>
 					<View style={{ flexDirection: "column" }}>
-						{this.state.patientList && this.state.patientList.length > 0 ? (
-							this.state.patientList.map((item, index) => {
+						{this.state.patientHistory && this.state.patientHistory.length > 0 ? (
+							this.state.patientHistory.map((item, index) => {
 								return (
 									<View
 										key={item._id}
 										style={{
 											flexDirection: "row",
 											justifyContent: "space-between",
-											padding: 10,
+											paddingTop: 10,
+											paddingBottom: 10,
 											borderColor: "#D5D5D5",
 											borderBottomWidth: 1,
 											borderLeftWidth: 1,
@@ -157,18 +161,17 @@ class HomeScreen extends React.Component {
 										}}
 									>
 										<Text
-											onPress={() => this.routeSinglePatient(item._id)}
 											style={{
 												fontSize: 18,
 												color: "gray",
 												color: "#343434",
 												fontSize: 15,
-												paddingRight: 20,
+												paddingRight: 10,
 												paddingLeft: 10,
 												flex: 0.7,
 											}}
 										>
-											{item.firstname} {item.lastname}
+											{moment(item.created).format('MMMM Do YYYY, h:mm:ss a')}
 										</Text>
 									</View>
 								);
